@@ -12,6 +12,18 @@ export default function Login() {
   }
 
   function handleSubmit(event) {
+    const userInfo = {
+      userEmail: event.target[0].value,
+      userPassword: event.target[1].value
+    };
+
+    fetch('/Login/' + userInfo.userEmail + '/' + userInfo.userPassword , userInfo)
+      .then(response => response.json())
+      .then(data => console.log(data));
+
+    console.log(userInfo);
+    console.log(event.target[0].value);
+    console.log(event.target[1].value);
     event.preventDefault();
   }
 
