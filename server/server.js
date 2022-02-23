@@ -12,6 +12,11 @@ mongoose.connect(process.env.MONGODB_API);
 
 const app = express();
 
+// Body Parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+
+
 app.get('/create', async (req, res) => {
     const user = {
         name: "Waseem Tannous111",
@@ -52,6 +57,20 @@ app.get('/read', async (req, res) => {
 
 
     res.json(user);
+
+});
+
+app.get('/Login/:userEmail/:userPassword', async (req, res) => {
+    console.log(req.params)
+    const user = await User.find({
+        email: req.params.userEmail,
+        password: req.params.userPassword
+    });
+    if(user.length){
+        res.json(user[0]);
+    }else{
+        res.status(400).json({msg: 'No member was found'});
+    }
 
 });
 
