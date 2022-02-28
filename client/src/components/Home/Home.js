@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 function checkLogin() {
-    if (localStorage.getItem('user') === null) window.location.href = '/'
+    console.log(localStorage.getItem('user'));
+    // if (localStorage.getItem('user') === null) window.location.href = '/';
 }
 
 class Home extends Component {
@@ -22,9 +23,4 @@ class Home extends Component {
     }
 }
 
-window.onunload = () => {
-    // Clear the local storage
-    window.MyStorage.clear()
- }
- 
 export default Home;
