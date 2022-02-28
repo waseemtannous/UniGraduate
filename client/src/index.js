@@ -9,8 +9,3 @@ ReactDOM.render((
   </BrowserRouter>
   ),document.getElementById('root')
 );
-
-window.onunload = () => {
-  // Clear the local storage
-  localStorage.clear();
-} 

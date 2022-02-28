@@ -20,10 +20,9 @@ export default function Login() {
     fetch('/Login/' + userInfo.userEmail + '/' + userInfo.userPassword , userInfo)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         if (data._id) {
-          localStorage.setItem('user', JSON.stringify(data));
-          window.location.href = '/Home';
+          sessionStorage.setItem('user', JSON.stringify(data));
+          window.location.href = '/';
         }
         });
 
