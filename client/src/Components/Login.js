@@ -19,7 +19,14 @@ export default function Login() {
 
     fetch('/Login/' + userInfo.userEmail + '/' + userInfo.userPassword , userInfo)
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        console.log(data)
+        if (data._id) {
+          localStorage.setItem('user', JSON.stringify(data));
+          window.location.href = '/Home';
+        }
+        });
+
 
     console.log(userInfo);
     console.log(event.target[0].value);

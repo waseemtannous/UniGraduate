@@ -1,11 +1,11 @@
-import Login from "./Components/Login";
+import Routes from "./routes";
 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Login/>
+        <Routes/>
       </header>
     </div>
   );
