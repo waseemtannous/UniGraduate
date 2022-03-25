@@ -72,6 +72,8 @@ app.get('/Login/:userEmail/:userPassword', async (req, res) => {
         res.status(400).json({msg: 'No member was found'});
     }
 
+    console.log(user);
+
 });
 
 app.get('/update', async (req, res) => {
