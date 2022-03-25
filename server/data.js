@@ -116,5 +116,337 @@ function createTeachers(){
     };
 
     const orMeir = {
+        name: "Or Meir",
+        email: "ormeir@cs.haifa.ac.il",
+        id: 10,
+        room: 412,
+        phone: "04-8280785",
+        specialties: [
+            "Theory of computer science",
+            "Computational complexity"
+        ],
+        courses: Array,
+    };
+
+    const ilanNewman = {
+        name: "Ilan Newman",
+        email: "ilan@cs.haifa.ac.il",
+        id: 11,
+        room: 515,
+        phone: "04-8249729",
+        specialties: [
+            "Algorithms",
+            "Complexity"
+        ],
+        courses: Array,
+    };
+
+    const adiAkvia = {
+        name: "Adi Akvia",
+        email: "akavia@cs.haifa.ac.il",
+        id: 12,
+        room: 505,
+        phone: "04-6647921",
+        specialties: [
+            "Data Security",
+            "Cryptography",
+            "Safe calculation",
+            "Big Data algorithms"
+        ],
+        courses: Array,
+    };
+
+    const roiPoranne = {
+        name: "Roi Poranne",
+        email: "roiporanne@cs.haifa.ac.il",
+        id: 13,
+        room: 510,
+        phone: "",
+        specialties: [
+            "Geometric processing",
+            "Calculus production"
+        ],
+        courses: Array,
+    };
+
+    const danFeldman = {
+        name: "Dan Feldman",
+        email: "dannyf.post@gmail.com",
+        id: 14,
+        room: 413,
+        phone: "04-8280786",
+        specialties: [
+            "Robotics and Big Data"
+        ],
+        courses: Array,
+    };
+
+    const moranFeldman = {
+        name: "Moran Feldman",
+        email: "moranfe@cs.haifa.ac.il",
+        id: 15,
+        room: 516,
+        phone: "04-8249728",
+        specialties: [
+            "Algorithms",
+            "Algorithmic Game Theory"
+        ],
+        courses: Array,
+    };
+
+    const rahelKolodny = {
+        name: "Rahel Kolodny",
+        email: "trachel@cs.haifa.ac.il",
+        id: 16,
+        room: 416,
+        phone: "04-8240158",
+        specialties: [
+            "Computational Biology"
+        ],
+        courses: Array,
+    };
+
+    const simonKorman = {
+        name: "Simon Korman",
+        email: "simon.korman@gmail.com",
+        id: 17,
+        room: 411,
+        phone: "04-8249708",
+        specialties: [
+            "Computer Vision"
+        ],
+        courses: Array,
+    };
+
+
+    const danielKeren = {
+        name: "Daniel Keren",
+        email: "dkeren@cs.haifa.ac.il",
+        id: 18,
+        room: 411,
+        phone: "04-8249730",
+        specialties: [
+            "Probabilistic pattern recognition",
+            "Monitoring in distributed and dynamic systems"
+        ],
+        courses: Array,
+    };
+
+
+    const yuriRabinovich = {
+        name: "Yuri Rabinovich",
+        email: "yuri@cs.haifa.ac.il",
+        id: 19,
+        room: 514,
+        phone: "04-8249902",
+        specialties: [
+            "Algorithms",
+            "Discrete Mathematics",
+            "Complexity of calculations"
+        ],
+        courses: Array,
+    };
+
+
+    const danRozenbaum = {
+        name: "Dan Rosenbaum",
+        email: "danro@cs.haifa.ac.il",
+        id: 20,
+        room: 612,
+        phone: "04-8249513",
+        specialties: [
+            "Machine Learning",
+            "Computer Vision"
+        ],
+        courses: Array,
+    };
+
+    const nogaRonZevi = {
+        name: "Noga Ron Zevi",
+        email: "noga@cs.haifa.ac.il",
+        id: 21,
+        room: 412,
+        phone: "",
+        specialties: [
+            "Algorithms",
+            "Computational complexity",
+            "Encryption theory"
+        ],
+        courses: Array,
+    };
+
+    const ronenSheiltael = {
+        name: "Ronen Sheiltael",
+        email: "ronen@cs.haifa.ac.il",
+        id: 22,
+        room: 414,
+        phone: "04-8249952",
+        specialties: [
+            "Theory of computer science",
+            "The complexity of the study of randomness as a resource in calculation"
+        ],
+        courses: Array,
+    };
+
+    const shayBushinski = {
+        name: "Shay Bushinski",
+        email: "shay@cs.haifa.ac.il",
+        id: 23,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const ariBenEphraim = {
+        name: "Ari Ben-Ephraim",
+        email: "ari.benephraim@gmail.com",
+        id: 24,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const erezGerlitz = {
+        name: "Erez Gerlitz",
+        email: "egerlitz@bezeqint.net",
+        id: 25,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const nimrodPeleg = {
+        name: "Nimrod Peleg",
+        email: "nimrodp@technion.ac.il",
+        id: 26,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const orenBenZwi = {
+        name: "Oren Ben-Zwi",
+        email: "oren.benzwi@gmail.com",
+        id: 27,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const amiViselter = {
+        name: "Ami Viselter",
+        email: "aviselter@univ.haifa.ac.il",
+        id: 28,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const gilVernik = {
+        name: "Gil Vernik",
+        email: "gvernik@gmail.com",
+        id: 29,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const malkiGrosman = {
+        name: "Malki Grosman",
+        email: "malkigr@gmail.com",
+        id: 30,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const eranLambooij = {
+        name: "Eran Lambooij",
+        email: "eranlambooij@gmail.com",
+        id: 31,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const ibrahimJubran= {
+        name: "Ibrahim Jubran",
+        email: "ibrahim.jub@gmail.com",
+        id: 32,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const yaelZepkowitz= {
+        name: "Yael Zepkowitz",
+        email: "yzepkowit@univ.haifa.ac.il",
+        id: 33,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const eliasJadon= {
+        name: "Elias Jadon",
+        email: "elias.jadon1@gmail.com",
+        id: 34,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const loayMualem= {
+        name: "Loay Mualem",
+        email: "mualem.loay.1995@gmail.com",
+        id: 35,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const arielAmsalem= {
+        name: "Ariel Amsalem",
+        email: "rel011235@gmail.com",
+        id: 36,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const islamAkaria= {
+        name: "Islam Akaria",
+        email: "islam.akaria@gmail.com",
+        id: 37,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
+    const yonatanGoldhirch= {
+        name: "Yonatan Goldhirch",
+        email: "ygold@google.com",
+        id: 38,
+        room: 0,
+        phone: "",
+        specialties: [],
+        courses: Array,
+    };
+
 
 }
