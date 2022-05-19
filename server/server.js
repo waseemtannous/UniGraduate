@@ -18,32 +18,32 @@ app.use(express.urlencoded({ extended: false}));
 
 
 app.get('/create', async (req, res) => {
-    const user = {
-        name: "Waseem Tannous111",
-        email: "waseemt99@gmail.com",
-        password: "12345",
-        id: 207866328,
-        courses: [
-            "CSCI-5100",
-            "CSCI-5200",
-            "CSCI-5300"
-        ],
-        grades: [
-            {
-            course: "CSCI-5100",
-            grade: "90"
-            },
-            {
-            course: "CSCI-5200",
-            grade: "80"
-            },
-            {
-            course: "CSCI-5300",
-            grade: "70"
-            }
-        ],
-        gpa: 80,
-    };
+    // const user = {
+    //     name: "Waseem Tannous111",
+    //     email: "waseemt99@gmail.com",
+    //     password: "12345",
+    //     id: 207866328,
+    //     courses: [
+    //         "CSCI-5100",
+    //         "CSCI-5200",
+    //         "CSCI-5300"
+    //     ],
+    //     grades: [
+    //         {
+    //         course: "CSCI-5100",
+    //         grade: "90"
+    //         },
+    //         {
+    //         course: "CSCI-5200",
+    //         grade: "80"
+    //         },
+    //         {
+    //         course: "CSCI-5300",
+    //         grade: "70"
+    //         }
+    //     ],
+    //     gpa: 80,
+    // };
 
     // User.create(user);
 

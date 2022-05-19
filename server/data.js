@@ -448,5 +448,61 @@ function createTeachers(){
         courses: Array,
     };
 
+    2
 
+
+}
+
+function createCourses() {
+    const Computerandnetworksecurity = {
+        name: "Computer and network security",
+        id: "203.3448",
+        lecturer: "Orr Dunkelman",
+        faculty: 203,
+        preRequisites: ["203.2110"],
+        points: 4,
+        semester: "A",
+        grades:[
+            {"year": 2013, "semester": "A", "average": 57.38},
+            {"year": 2014, "semester": "A", "average": 55.689},
+            {"year": 2019, "semester": "A", "average": 45},
+            {"year": 2020, "semester": "A", "average": 52},
+            {"year": 2021, "semester": "A", "average": 56}
+        ],
+        lectures: [
+            [{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}]
+        ]
+    };
+
+    const Advancedcompileroptimizations = {
+        name: "Advanced compiler optimizations",
+        id: "203.3137",
+        lecturer: "Yosi Ben Asher",
+        faculty: 203,
+        preRequisites: ["203.2130"],
+        points: 3,
+        semester: "B",
+        grades:[
+            {"year": 2018, "semester": "B", "average": 94.375}
+        ],
+        lectures: [
+            [{"day": "tuesday", "time": "17-20"}]
+        ]
+    };
+
+    const Formalverification = {
+        name: "Formal verification",
+        id: "203.3223",
+        lecturer: "Guy Avni",
+        faculty: 203,
+        preRequisites: ["203.3510"],
+        points: 4,
+        semester: "B",
+        grades:[
+            
+        ],
+        lectures: [
+            [{"day": "monday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}]
+        ]
+    };
 }
