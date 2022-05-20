@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import { useParams } from "react-router-dom";
+import { useParams , useSearchParams} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,9 +12,22 @@ class Courses extends Component {
       searchOptions: []
     };
 
-    const { courseName } = this.props.match.params;
+    let { courseName } = this.props.match.params;
+
     console.log(courseName);
-    this.loadOptions = this.loadOptions.bind(this);
+
+    const url = new URL(window.location);
+    courseName = url.searchParams.get('courseName');
+
+    console.log(courseName);
+
+    fetch('/getCourse/' +  courseName)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        course: data
+      })
+    })
   }
 
   loadOptions = () => {
@@ -36,6 +49,9 @@ class Courses extends Component {
         course: data,
         selectedOption: selectedOption.value
       })
+      const url = new URL(window.location);
+      url.searchParams.set('courseName', courseName.replaceAll(' ', '-'));
+      window.history.pushState(null, '', url.toString());
     })
   };
 
@@ -129,18 +145,18 @@ class Courses extends Component {
 
   render() { 
     return (
-      <div class="container-fluid h-100">
+      <div className="container-fluid h-100">
         <h1>Courses</h1>
         <hr></hr>
-        <div class="row">
-          <div class="col-sm-3 border-right">
+        <div className="row">
+          <div className="col-sm-3 border-right">
             <Select 
             onMenuOpen={this.loadOptions}
             options={this.state.searchOptions}
             onChange={this.handleSearchChange}
             />
           </div>
-          <div class="col-sm-6 border-start ">
+          <div className="col-sm-6 border-start ">
             {this.courseInfo()}
             
           </div>
