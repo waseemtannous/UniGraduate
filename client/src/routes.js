@@ -17,6 +17,7 @@ const Routes = () => {
       <Route exact path='/CalendarBuilder' component={CalendarBuilder}></Route>
       <Route exact path='/Grades' component={Grades}></Route>
       <Route exact path='/Courses' component={Courses}></Route>
+      <Route exact path='/Courses/:courseName' component={Courses}></Route>
       <Route exact path='/Lecturers' component={Lecturers}></Route>
       <Route exact path='/Teachers' component={Teachers}></Route>
     </Switch>
