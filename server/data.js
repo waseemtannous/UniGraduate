@@ -447,10 +447,6 @@ function createTeachers(){
         specialties: [],
         courses: Array,
     };
-
-    2
-
-
 }
 
 function createCourses() {
@@ -469,9 +465,9 @@ function createCourses() {
             {"year": 2020, "semester": "A", "average": 52},
             {"year": 2021, "semester": "A", "average": 56}
         ],
-        lectures: [
-            [{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}]
-        ]
+        lectures: {
+            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}]]
+        }
     };
 
     const Advancedcompileroptimizations = {
@@ -481,13 +477,15 @@ function createCourses() {
         faculty: 203,
         preRequisites: ["203.2130"],
         points: 3,
-        semester: "B",
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
         grades:[
             {"year": 2018, "semester": "B", "average": 94.375}
         ],
-        lectures: [
-            [{"day": "tuesday", "time": "17-20"}]
-        ]
+        lectures: {
+            "A": [[{"day": "tuesday", "time": "17-20"}]]
+        }
     };
 
     const Formalverification = {
@@ -497,12 +495,38 @@ function createCourses() {
         faculty: 203,
         preRequisites: ["203.3510"],
         points: 4,
-        semester: "B",
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
         grades:[
             
         ],
-        lectures: [
-            [{"day": "monday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}]
-        ]
+        lectures: {
+            "A": [[{"day": "monday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}]]
+        }
     };
+
+    const algebraB = {
+        name: "Algebra B",
+        id: "203.1820",
+        lecturer: "Islam Akaria",
+        faculty: 203,
+        preRequisites: [{"name": "Algebra A", "id": "203.3510"}],
+        points: 5,
+        semesterA: false,
+        semesterB: true,
+        semesterC: true,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "sunday", "time": "8-10"}],
+                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "thursday", "time": "18-20"}],
+                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "tuesdey", "time": "8-10"}]],
+            "C": [[{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "9-13"}],
+                    [{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "13-17"}]],
+        }
+    };
+
+
 }

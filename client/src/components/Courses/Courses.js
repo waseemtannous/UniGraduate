@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import { useParams , useSearchParams} from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

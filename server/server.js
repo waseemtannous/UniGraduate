@@ -224,5 +224,125 @@ app.get('/getCoursesNames', async (req, res) => {
     res.json(coursesNames);
 });
 
+app.get('/getLecturer/:lecturerName', async (req, res) => {
+    const guyAvni = {
+        name: "Guy Avni",
+        email: "gavni@cs.haifa.ac.il",
+        id: 1,
+        room: 409,
+        phone: "04-8240526",
+        specialties: [
+            "Formal methods",
+            "game theory"
+        ],
+    };
+
+    const ritaOsedtsi = {
+        name: "Rita Osedtsi",
+        email: "rita@cs.haifa.ac.il",
+        id: 2,
+        room: 410,
+        phone: "04-8288444",
+        specialties: [
+            "Computer Vision",
+            "Machine Learning"
+        ],
+    };
+
+    const yosiBenAsher = {
+        name: "Yosi Ben Asher",
+        email: "yosi@cs.haifa.ac.il",
+        id: 3,
+        room: 513,
+        phone: "04-8240338",
+        specialties: [
+            "Parallel calculation",
+            "Operating Systems",
+            "Compilers"
+        ],
+    };
+
+    const orrDunkelman = {
+        name: "Orr Dunkelman",
+        email: "orrd@cs.haifa.ac.il",
+        id: 4,
+        room: 408,
+        phone: "04-8288447",
+        specialties: [
+            "Cryptography and Cryptanalysis",
+            "Computer security"
+        ],
+    };
+
+    const lecturers = [guyAvni, ritaOsedtsi, yosiBenAsher, orrDunkelman];
+    const lecturerName = req.params.lecturerName.replaceAll('-', ' ');
+
+    for (let i = 0; i < lecturers.length; i++) {
+        if(lecturers[i].name === lecturerName){
+            res.json(lecturers[i]);
+        }
+    }
+});
+
+
+app.get('/getlecturersNames', async (req, res) => {
+    const guyAvni = {
+        name: "Guy Avni",
+        email: "gavni@cs.haifa.ac.il",
+        id: 1,
+        room: 409,
+        phone: "04-8240526",
+        specialties: [
+            "Formal methods",
+            "game theory"
+        ],
+    };
+
+    const ritaOsedtsi = {
+        name: "Rita Osedtsi",
+        email: "rita@cs.haifa.ac.il",
+        id: 2,
+        room: 410,
+        phone: "04-8288444",
+        specialties: [
+            "Computer Vision",
+            "Machine Learning"
+        ],
+    };
+
+    const yosiBenAsher = {
+        name: "Yosi Ben Asher",
+        email: "yosi@cs.haifa.ac.il",
+        id: 3,
+        room: 513,
+        phone: "04-8240338",
+        specialties: [
+            "Parallel calculation",
+            "Operating Systems",
+            "Compilers"
+        ],
+    };
+
+    const orrDunkelman = {
+        name: "Orr Dunkelman",
+        email: "orrd@cs.haifa.ac.il",
+        id: 4,
+        room: 408,
+        phone: "04-8288447",
+        specialties: [
+            "Cryptography and Cryptanalysis",
+            "Computer security"
+        ],
+    };
+    const lecturersNames = [
+        {value: guyAvni.name, label: guyAvni.name},
+        {value: ritaOsedtsi.name, label: ritaOsedtsi.name},
+        {value: yosiBenAsher.name, label: yosiBenAsher.name},
+        {value: orrDunkelman.name, label: orrDunkelman.name}
+    ]
+
+    res.json(lecturersNames);
+});
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

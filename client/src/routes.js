@@ -19,6 +19,7 @@ const Routes = () => {
       <Route exact path='/Courses' component={Courses}></Route>
       <Route exact path='/Courses/:courseName' component={Courses}></Route>
       <Route exact path='/Lecturers' component={Lecturers}></Route>
+      <Route exact path='/Lecturers/:lecturerName' component={Lecturers}></Route>
       <Route exact path='/Teachers' component={Teachers}></Route>
     </Switch>
   );

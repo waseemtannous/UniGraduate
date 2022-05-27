@@ -7,9 +7,12 @@ const courseSchema = new mongoose.Schema({
     faculty: Number,
     preRequisites: Array,
     points: Number,
+    semesterA: Boolean,
+    semesterB: Boolean,
+    semesterC: Boolean,
     semester: String,
     grades: Array,
-    lectures: Array,
+    lectures: Object,
 });    
 
 const Course = mongoose.model("course", courseSchema);
