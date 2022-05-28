@@ -457,7 +457,10 @@ function createCourses() {
         faculty: 203,
         preRequisites: ["203.2110"],
         points: 4,
-        semester: "A",
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
         grades:[
             {"year": 2013, "semester": "A", "average": 57.38},
             {"year": 2014, "semester": "A", "average": 55.689},
@@ -477,6 +480,7 @@ function createCourses() {
         faculty: 203,
         preRequisites: ["203.2130"],
         points: 3,
+        mandatory: true,
         semesterA: false,
         semesterB: true,
         semesterC: false,
@@ -495,6 +499,7 @@ function createCourses() {
         faculty: 203,
         preRequisites: ["203.3510"],
         points: 4,
+        mandatory: false,
         semesterA: false,
         semesterB: true,
         semesterC: false,
@@ -513,6 +518,7 @@ function createCourses() {
         faculty: 203,
         preRequisites: [{"name": "Algebra A", "id": "203.3510"}],
         points: 5,
+        mandatory: true,
         semesterA: false,
         semesterB: true,
         semesterC: true,
@@ -528,5 +534,26 @@ function createCourses() {
         }
     };
 
+    const ObjectOrientedProgramming = {
+        name: "Object oriented programming",
+        id: "203.1120",
+        lecturer: "Dan Feldman",
+        faculty: 203,
+        preRequisites: ["203.3510"],
+        points: 4,
+        mandatory: true,
+        semesterA: false,
+        semesterB: true,
+        semesterC: true,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "sunday", "time": "16-19"}, {"day": "monday", "time": "14-16"}],
+            [{"day": "sunday", "time": "16-19"}, {"day": "wednesday", "time": "8-10"}]],
+            "C": [[{"day": "sunday", "time": "9-12"}, {"day": "thursday", "time": "9-12"},{"day": "sunday", "time": "15-17"},{"day": "thursday", "time": "15-17"}],
+            [{"day": "sunday", "time": "9-12"}, {"day": "thursday", "time": "9-12"},{"day": "tuesday", "time": "9-13"}]]
+        }
+    };
 
 }
