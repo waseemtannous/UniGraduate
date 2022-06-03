@@ -539,7 +539,7 @@ function createCourses() {
         id: "203.1120",
         lecturer: "Dan Feldman",
         faculty: 203,
-        preRequisites: ["203.3510"],
+        preRequisites: ["203.1110"],
         points: 4,
         mandatory: true,
         semesterA: false,
@@ -556,4 +556,61 @@ function createCourses() {
         }
     };
 
+    const CloudBasedServicesDesign = {
+        name: "Cloud-based services design",
+        id: "203.3723",
+        lecturer: "Yonatan Goldhirch",
+        faculty: 203,
+        preRequisites: ["203.2110"],
+        points: 3,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "sunday", "time": "17-20"}]]
+        }
+    };
+
+    const DesignOfHardwareComponentsForComputerEmbeddedSystems = {
+        name: "Design of hardware components for computer embedded systems",
+        id: "203.3260",
+        lecturer: "Yosi Ben Asher",
+        faculty: 203,
+        preRequisites: ["203.1110","203.1210"],
+        points: 3,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "monday", "time": "01-04"}]]
+        }
+    };
+
+    const AlgorithmDesignAndAnalysis = {
+        name: "Algorithm design and analysis",
+        id: "203.2410",
+        lecturer: "Moran Feldman",
+        faculty: 203,
+        preRequisites: ["203.2310","203.3510"],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "sunday", "time": "18-20"}],
+            [{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "wednesday", "time": "16-18"}]]
+        }
+    };
 }
