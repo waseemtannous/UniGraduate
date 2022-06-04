@@ -610,7 +610,90 @@ function createCourses() {
         ],
         lectures: {
             "A": [[{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "sunday", "time": "18-20"}],
-            [{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "wednesday", "time": "16-18"}]]
+            [{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "wednesday", "time": "16-18"}]],
+            "B": [[{"day": "sunday", "time": "14-16"},{"day": "wednesday", "time": "16-18"},{"day": "sunday", "time": "12-14"}],
+            [{"day": "sunday", "time": "14-16"},{"day": "wednesday", "time": "16-18"},{"day": "thursday", "time": "14-16"}]]
+        
+        }
+    };
+
+    const InformationTheory = {
+        name: "Information Theory",
+        id: "203.3370",
+        lecturer: "Noga Ron Zevi",
+        faculty: 203,
+        preRequisites: ["203.2410","203.2480"],
+        points: 3,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "wednesday", "time": "16-19"}]]
+        }
+    };
+
+    const GraphHousingInThePlain = {
+        name: "Graph housing in the plain",
+        id: "203.3595",
+        lecturer: "Alek Vinshtein",
+        faculty: 203,
+        preRequisites: ["203.2410"],
+        points: 2,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "wednesday", "time": "18-20"}]]
+        }
+    };
+
+    const ProbabilisticMethods = {
+        name: "Probabilistic methods",
+        id: "203.2480",
+        lecturer: "Simon Korman",
+        faculty: 203,
+        preRequisites: ["203.2310","203.1840","204.1810"],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "wednesday", "time": "08-12"},{"day": "monday", "time": "10-12"}],
+            [{"day": "monday", "time": "16-18"},{"day": "wednesday", "time": "18-20"}]],
+            "B": [[{"day": "sunday", "time": "10-12"},{"day": "tuesday", "time": "10-12"},{"day": "sunday", "time": "08-10"}],
+            [{"day": "sunday", "time": "14-16"},{"day": "wednesday", "time": "16-18"},{"day": "tuesday", "time": "14-16"}]]
+        
+        }
+    };
+
+    const CommunicationNetworks = {
+        name: "CommunicationNetworks",
+        id: "203.3210",
+        lecturer: "Orr Dunkelman",
+        faculty: 203,
+        preRequisites: ["203.2480"],
+        points: 4,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "wednesday", "time": "12-14"},{"day": "wednesday", "time": "08-10"}]]
         }
     };
 }
