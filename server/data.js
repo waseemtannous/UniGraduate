@@ -450,6 +450,170 @@ function createTeachers(){
 }
 
 function createCourses() {
+    const AlgebraA = {
+        name: "Algebra A",
+        id: "203.1810",
+        lecturer: "Ariel Amsalem",
+        faculty: 203,
+        preRequisites: [],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: false,
+        semesterC: true,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "monday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}, {"day": "tuesdey", "time": "16-18"}],
+                [{"day": "monday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}, {"day": "thursday", "time": "16-18"}],
+                [{"day": "monday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}, {"day": "monday", "time": "8-10"}]],
+            "C": [[{"day": "tuesday", "time": "13-16"}, {"day": "thursday", "time": "12-17"}, {"day": "monday", "time": "10-14"}]],
+        }
+    };
+    
+    
+    const algebraB = {
+        name: "Algebra B",
+        id: "203.1820",
+        lecturer: "Islam Akaria",
+        faculty: 203,
+        preRequisites: [{"name": "Algebra A", "id": "203.3510"}],
+        points: 5,
+        mandatory: true,
+        semesterA: false,
+        semesterB: true,
+        semesterC: true,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "sunday", "time": "8-10"}],
+                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "thursday", "time": "18-20"}],
+                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "tuesdey", "time": "8-10"}]],
+            "C": [[{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "9-13"}],
+                    [{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "13-17"}]],
+        }
+    };
+
+    const calculus1 = {
+        name: "Calculus 1",
+        id: "203.1830",
+        lecturer: "Ami Viselter",
+        faculty: 203,
+        preRequisites: [],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: false,
+        semesterC: true,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "sunday", "time": "12-14"}, {"day": "tuesdey", "time": "10-12"}, {"day": "monday", "time": "10-12"}],
+                [{"day": "sunday", "time": "12-14"}, {"day": "tuesdey", "time": "10-12"}, {"day": "wednesday", "time": "10-12"}],
+                [{"day": "sunday", "time": "12-14"}, {"day": "tuesdey", "time": "10-12"}, {"day": "sunday", "time": "12-14"}]],
+            "C": [[{"day": "tuesday", "time": "16-18"}, {"day": "wednesday", "time": "16-18"}, {"day": "monday", "time": "16-18"}]],
+        }
+    };
+
+    const calculus2 = {
+        name: "Calculus 2",
+        id: "203.1840",
+        lecturer: "Ami Viselter",
+        faculty: 203,
+        preRequisites: [{"name": "Calculus 1", "id": "203.1830"}],
+        points: 5,
+        mandatory: true,
+        semesterA: false,
+        semesterB: true,
+        semesterC: true,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "monday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}, {"day": "sunday", "time": "10-12"}],
+                [{"day": "monday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}, {"day": "wednesday", "time": "16-18"}],
+                [{"day": "monday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}, {"day": "wednesday", "time": "8-10"}]],
+            "C": [[{"day": "monday", "time": "17-21"}, {"day": "wednesday", "time": "17-21"}, {"day": "tuesday", "time": "16-20"}]],
+        }
+    };
+
+    const introtohardware = {
+        name: "Intro to hardware",
+        id: "203.1210",
+        lecturer: "Erez Gerlitz",
+        faculty: 203,
+        preRequisites: [],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "monday", "time": "8-10"}],
+                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "tuesday", "time": "18-20"}]],
+        }
+    };
+
+    const introtocs = {
+        name: "Intro to computer science",
+        id: "203.1110",
+        lecturer: "Shuly Vintner",
+        faculty: 203,
+        preRequisites: [],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "monday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}, {"day": "sunday", "time": "16-18"}, {"day": "monday", "time": "12-14"}],
+                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}, {"day": "wednesday", "time": "14-16"}, {"day": "wednesday", "time": "16-18"}],
+                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}, {"day": "thursday", "time": "8-10"}, {"day": "thursday", "time": "14-16"}]],
+            
+            "B": [[{"day": "monday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}],
+                [{"day": "monday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}, {"day": "sunday", "time": "12-14"}, {"day": "sunday", "time": "16-18"}]],
+        }
+    };
+
+    const discreteMath = {
+        name: "Discrete mathematics",
+        id: "203.1850",
+        lecturer: "Or Meir",
+        faculty: 203,
+        preRequisites: [],
+        points: 5,
+        mandatory: true,
+        semesterA: true,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "sunday", "time": "8-12"}, {"day": "tuesday", "time": "14-16"}],
+                [{"day": "sunday", "time": "8-12"}, {"day": "tuesday", "time": "8-10"}],
+                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}]],
+            
+            "B": [[{"day": "monday", "time": "10-14"}, {"day": "tuesday", "time": "14-16"}],
+                [{"day": "monday", "time": "10-14"}, {"day": "thursday", "time": "8-10"}]],
+        }
+    };
+
+    
+
+
+
+    
+
     const Computerandnetworksecurity = {
         name: "Computer and network security",
         id: "203.3448",
@@ -511,28 +675,7 @@ function createCourses() {
         }
     };
 
-    const algebraB = {
-        name: "Algebra B",
-        id: "203.1820",
-        lecturer: "Islam Akaria",
-        faculty: 203,
-        preRequisites: [{"name": "Algebra A", "id": "203.3510"}],
-        points: 5,
-        mandatory: true,
-        semesterA: false,
-        semesterB: true,
-        semesterC: true,
-        grades:[
-            
-        ],
-        lectures: {
-            "B": [[{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "sunday", "time": "8-10"}],
-                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "thursday", "time": "18-20"}],
-                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "tuesdey", "time": "8-10"}]],
-            "C": [[{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "9-13"}],
-                    [{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "13-17"}]],
-        }
-    };
+    
 
     const ObjectOrientedProgramming = {
         name: "Object oriented programming",
