@@ -8,17 +8,14 @@ class Courses extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchOptions: []
+      searchOptions: [],
+      feedback: "",
     };
 
     let { courseName } = this.props.match.params;
 
-    console.log(courseName);
-
     const url = new URL(window.location);
     courseName = url.searchParams.get('courseName');
-
-    console.log(courseName);
 
     fetch('/getCourse/' +  courseName)
     .then(response => response.json())
@@ -121,7 +118,6 @@ class Courses extends Component {
   courseInfo() {
     if (this.state.course) {
       const courseName = this.state.course.name;
-      console.log(courseName);
       if (this.state.course) {
         return (
           <div className="course-info">
@@ -142,6 +138,46 @@ class Courses extends Component {
     }
   };
 
+  saveFeedback() {
+    console.log(this.state.feedback);
+  }
+
+  handleFeedbackChange(event) {
+    this.setState({
+      feedback: event.target.value
+    });
+  }
+
+  feedback() {
+    if (this.state.course) {
+      return (
+        <div className="feedback">
+          <h3>Feedback</h3>
+
+          {
+            <div className="form-group">
+              <textarea className="form-control" value={this.state.feedback} onChange={this.handleFeedbackChange.bind(this)} rows="1"></textarea>
+              <button type="submit" className="btn btn-primary" onClick={this.saveFeedback.bind(this)}>Submit</button>
+              <hr></hr>
+            </div>
+          }
+
+          {
+            this.state.course.feedback.map((feedback) => {
+              return (
+                <div className="feedback-item">
+                  <p>{feedback}</p>
+                  <hr></hr>
+                </div>
+              );
+            }
+          )}
+        </div>
+      );
+    }
+
+  }
+
   render() { 
     return (
       <div className="container-fluid h-100">
@@ -157,7 +193,7 @@ class Courses extends Component {
           </div>
           <div className="col-sm-6 border-start ">
             {this.courseInfo()}
-            
+            {this.feedback()}
           </div>
         </div>
       </div>

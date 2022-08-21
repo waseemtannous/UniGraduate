@@ -117,6 +117,11 @@ app.get('/getCourse/:courseName', async (req, res) => {
         ],
         lectures: [
             [{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}]
+        ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
         ]
     };
 
@@ -133,6 +138,11 @@ app.get('/getCourse/:courseName', async (req, res) => {
         ],
         lectures: [
             [{"day": "tuesday", "time": "17-20"}]
+        ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
         ]
     };
 
@@ -149,6 +159,11 @@ app.get('/getCourse/:courseName', async (req, res) => {
         ],
         lectures: [
             [{"day": "monday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}]
+        ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
         ]
     };
 
@@ -235,6 +250,11 @@ app.get('/getLecturer/:lecturerName', async (req, res) => {
             "Formal methods",
             "game theory"
         ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
+        ]
     };
 
     const ritaOsedtsi = {
@@ -247,6 +267,11 @@ app.get('/getLecturer/:lecturerName', async (req, res) => {
             "Computer Vision",
             "Machine Learning"
         ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
+        ]
     };
 
     const yosiBenAsher = {
@@ -260,6 +285,11 @@ app.get('/getLecturer/:lecturerName', async (req, res) => {
             "Operating Systems",
             "Compilers"
         ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
+        ]
     };
 
     const orrDunkelman = {
@@ -272,6 +302,11 @@ app.get('/getLecturer/:lecturerName', async (req, res) => {
             "Cryptography and Cryptanalysis",
             "Computer security"
         ],
+        feedback: [
+            "feedback3",
+            "feedback2",
+            "feedback1",
+        ]
     };
 
     const lecturers = [guyAvni, ritaOsedtsi, yosiBenAsher, orrDunkelman];

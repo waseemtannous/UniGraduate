@@ -8,17 +8,14 @@ class Lectures extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchOptions: []
+      searchOptions: [],
+      feedback: "",
     };
 
     let { lecturerName } = this.props.match.params;
 
-    console.log(lecturerName);
-
     const url = new URL(window.location);
     lecturerName = url.searchParams.get('lecturerName');
-
-    console.log(lecturerName);
 
     fetch('/getLecturer/' +  lecturerName)
     .then(response => response.json())
@@ -57,7 +54,6 @@ class Lectures extends Component {
   lecturerInfo() {
     if (this.state.lecturer) {
       const lecturerName = this.state.lecturer.name;
-      console.log(lecturerName);
       if (this.state.lecturer) {
         return (
           <div className="lecturer-info">
@@ -76,6 +72,47 @@ class Lectures extends Component {
       }
     }
   };
+  
+  saveFeedback() {
+    console.log(this.state.feedback);
+  }
+
+  handleFeedbackChange(event) {
+    this.setState({
+      feedback: event.target.value
+    });
+  }
+
+  feedback() {
+    if (this.state.lecturer) {
+      return (
+        <div className="feedback">
+          <h3>Feedback</h3>
+
+          {
+            <div className="form-group">
+              <textarea className="form-control" value={this.state.feedback} onChange={this.handleFeedbackChange.bind(this)} rows="1"></textarea>
+              <button type="submit" className="btn btn-primary" onClick={this.saveFeedback.bind(this)}>Submit</button>
+              <hr></hr>
+            </div>
+          }
+
+          {
+            this.state.lecturer.feedback.map((feedback) => {
+              return (
+                <div className="feedback-item">
+                  <p>{feedback}</p>
+                  <hr></hr>
+                </div>
+              );
+            }
+          )
+          }
+        </div>
+      );
+    }
+
+  }
 
   render() { 
     return (
@@ -92,7 +129,7 @@ class Lectures extends Component {
           </div>
           <div className="col-sm-6 border-start ">
             {this.lecturerInfo()}
-            
+            {this.feedback()}
           </div>
         </div>
       </div>
