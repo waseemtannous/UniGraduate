@@ -1055,324 +1055,387 @@ function createCourses() {
         ]
     };
 
-    // p4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -----------------------------------------------------------------------------------------------------------------------------------------------------
-
-    const AlgebraA = {
-        name: "Algebra A",
-        id: "203.1810",
-        lecturer: "Ariel Amsalem",
+    const computationalModels = {
+        name: "Computational Models",
+        id: "203.3510",
+        lecturer: "Ilan Newman",
         faculty: 203,
-        preRequisites: [],
+        preRequisites: [
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+        ],
         points: 5,
         mandatory: true,
         semesterA: true,
-        semesterB: false,
-        semesterC: true,
+        semesterB: true,
+        semesterC: false,
         grades:[
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}, {"day": "tuesdey", "time": "16-18"}],
-                [{"day": "monday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}, {"day": "thursday", "time": "16-18"}],
-                [{"day": "monday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}, {"day": "monday", "time": "8-10"}]],
-            "C": [[{"day": "tuesday", "time": "13-16"}, {"day": "thursday", "time": "12-17"}, {"day": "monday", "time": "10-14"}]],
-        }
+            "A": [[{"day": "sunday", "time": "12-14"}, {"day": "thursday", "time": "12-14"}, {"day": "sunday", "time": "14-16"}],
+                [{"day": "sunday", "time": "12-14"}, {"day": "thursday", "time": "12-14"}, {"day": "monday", "time": "12-14"}]],
+
+            "B": [[{"day": "tuesday", "time": "8-12"}, {"day": "monday", "time": "14-16"}],
+                [{"day": "tuesday", "time": "8-12"}, {"day": "thursday", "time": "18-20"}]],
+        },
+        feedback: [
+
+        ]
     };
-    
-    
-    const algebraB = {
-        name: "Algebra B",
-        id: "203.1820",
-        lecturer: "Islam Akaria",
+
+    const randomnessInCalculation = {
+        name: "Randomness in calculation",
+        id: "203.3426",
+        lecturer: "Ronen Sheiltael",
         faculty: 203,
-        preRequisites: [{"name": "Algebra A", "id": "203.3510"}],
-        points: 5,
-        mandatory: true,
+        preRequisites: [
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods",
+            },
+        ],
+        points: 3,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "wednesday", "time": "14-17"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const cryptography = {
+        name: "Cryptography",
+        id: "203.3444",
+        lecturer: "Orr Dunkelman",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3510",
+                courseName: "Computational Models",
+            },
+        ],
+        points: 4,
+        mandatory: false,
         semesterA: false,
         semesterB: true,
-        semesterC: true,
-        grades:[
-            
-        ],
-        lectures: {
-            "B": [[{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "sunday", "time": "8-10"}],
-                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "thursday", "time": "18-20"}],
-                [{"day": "monday", "time": "16-18"}, {"day": "thursday", "time": "16-18"}, {"day": "tuesdey", "time": "8-10"}]],
-            "C": [[{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "9-13"}],
-                    [{"day": "sunday", "time": "9-13"}, {"day": "wednesday", "time": "13-16"}, {"day": "monday", "time": "13-17"}]],
-        }
-    };
-
-    const calculus1 = {
-        name: "Calculus 1",
-        id: "203.1830",
-        lecturer: "Ami Viselter",
-        faculty: 203,
-        preRequisites: [],
-        points: 5,
-        mandatory: true,
-        semesterA: true,
-        semesterB: false,
-        semesterC: true,
-        grades:[
-            
-        ],
-        lectures: {
-            "A": [[{"day": "sunday", "time": "12-14"}, {"day": "tuesdey", "time": "10-12"}, {"day": "monday", "time": "10-12"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "tuesdey", "time": "10-12"}, {"day": "wednesday", "time": "10-12"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "tuesdey", "time": "10-12"}, {"day": "sunday", "time": "12-14"}]],
-            "C": [[{"day": "tuesday", "time": "16-18"}, {"day": "wednesday", "time": "16-18"}, {"day": "monday", "time": "16-18"}]],
-        }
-    };
-
-    const calculus2 = {
-        name: "Calculus 2",
-        id: "203.1840",
-        lecturer: "Ami Viselter",
-        faculty: 203,
-        preRequisites: [{"name": "Calculus 1", "id": "203.1830"}],
-        points: 5,
-        mandatory: true,
-        semesterA: false,
-        semesterB: true,
-        semesterC: true,
-        grades:[
-            
-        ],
-        lectures: {
-            "A": [[{"day": "monday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}, {"day": "sunday", "time": "10-12"}],
-                [{"day": "monday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}, {"day": "wednesday", "time": "16-18"}],
-                [{"day": "monday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}, {"day": "wednesday", "time": "8-10"}]],
-            "C": [[{"day": "monday", "time": "17-21"}, {"day": "wednesday", "time": "17-21"}, {"day": "tuesday", "time": "16-20"}]],
-        }
-    };
-
-    const introtohardware = {
-        name: "Intro to hardware",
-        id: "203.1210",
-        lecturer: "Erez Gerlitz",
-        faculty: 203,
-        preRequisites: [],
-        points: 5,
-        mandatory: true,
-        semesterA: true,
-        semesterB: false,
         semesterC: false,
         grades:[
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "monday", "time": "8-10"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "tuesday", "time": "18-20"}]],
-        }
+            "B": [[{"day": "sunday", "time": "12-14"}, {"day": "thursday", "time": "12-14"}]],
+        },
+        feedback: [
+
+        ]
     };
-
-    const introtocs = {
-        name: "Intro to computer science",
-        id: "203.1110",
-        lecturer: "Shuly Vintner",
-        faculty: 203,
-        preRequisites: [],
-        points: 5,
-        mandatory: true,
-        semesterA: true,
-        semesterB: true,
-        semesterC: false,
-        grades:[
-            
-        ],
-        lectures: {
-            "A": [[{"day": "monday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}, {"day": "sunday", "time": "16-18"}, {"day": "monday", "time": "12-14"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}, {"day": "wednesday", "time": "14-16"}, {"day": "wednesday", "time": "16-18"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}, {"day": "thursday", "time": "8-10"}, {"day": "thursday", "time": "14-16"}]],
-            
-            "B": [[{"day": "monday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}],
-                [{"day": "monday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}, {"day": "sunday", "time": "12-14"}, {"day": "sunday", "time": "16-18"}]],
-        }
-    };
-
-    const discreteMath = {
-        name: "Discrete mathematics",
-        id: "203.1850",
-        lecturer: "Or Meir",
-        faculty: 203,
-        preRequisites: [],
-        points: 5,
-        mandatory: true,
-        semesterA: true,
-        semesterB: true,
-        semesterC: false,
-        grades:[
-            
-        ],
-        lectures: {
-            "A": [[{"day": "sunday", "time": "8-12"}, {"day": "tuesday", "time": "14-16"}],
-                [{"day": "sunday", "time": "8-12"}, {"day": "tuesday", "time": "8-10"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}]],
-            
-            "B": [[{"day": "monday", "time": "10-14"}, {"day": "tuesday", "time": "14-16"}],
-                [{"day": "monday", "time": "10-14"}, {"day": "thursday", "time": "8-10"}]],
-        }
-    };
-
-    
-
-
-
-    
 
     const Computerandnetworksecurity = {
         name: "Computer and network security",
         id: "203.3448",
         lecturer: "Orr Dunkelman",
         faculty: 203,
-        preRequisites: ["203.2110"],
+        preRequisites: [
+            {
+                courseId: "203.2110",
+                courseName: "Operating Systems",
+            },
+        ],
         points: 4,
         mandatory: false,
         semesterA: true,
         semesterB: false,
         semesterC: false,
         grades:[
-            {"year": 2013, "semester": "A", "average": 57.38},
-            {"year": 2014, "semester": "A", "average": 55.689},
-            {"year": 2019, "semester": "A", "average": 45},
-            {"year": 2020, "semester": "A", "average": 52},
-            {"year": 2021, "semester": "A", "average": 56}
-        ],
-        lectures: {
-            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}]]
-        }
-    };
-
-    const Advancedcompileroptimizations = {
-        name: "Advanced compiler optimizations",
-        id: "203.3137",
-        lecturer: "Yosi Ben Asher",
-        faculty: 203,
-        preRequisites: ["203.2130"],
-        points: 3,
-        mandatory: true,
-        semesterA: false,
-        semesterB: true,
-        semesterC: false,
-        grades:[
-            {"year": 2018, "semester": "B", "average": 94.375}
-        ],
-        lectures: {
-            "A": [[{"day": "tuesday", "time": "17-20"}]]
-        }
-    };
-
-    const Formalverification = {
-        name: "Formal verification",
-        id: "203.3223",
-        lecturer: "Guy Avni",
-        faculty: 203,
-        preRequisites: ["203.3510"],
-        points: 4,
-        mandatory: false,
-        semesterA: false,
-        semesterB: true,
-        semesterC: false,
-        grades:[
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "12-14"}, {"day": "wednesday", "time": "10-12"}]]
-        }
+            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "12-14"}]],
+        },
+        feedback: [
+
+        ]
     };
 
-    
-
-    const ObjectOrientedProgramming = {
-        name: "Object oriented programming",
-        id: "203.1120",
-        lecturer: "Dan Feldman",
-        faculty: 203,
-        preRequisites: ["203.1110"],
-        points: 4,
-        mandatory: true,
-        semesterA: false,
-        semesterB: true,
-        semesterC: true,
-        grades:[
-            
-        ],
-        lectures: {
-            "B": [[{"day": "sunday", "time": "16-19"}, {"day": "monday", "time": "14-16"}],
-            [{"day": "sunday", "time": "16-19"}, {"day": "wednesday", "time": "8-10"}]],
-            "C": [[{"day": "sunday", "time": "9-12"}, {"day": "thursday", "time": "9-12"},{"day": "sunday", "time": "15-17"},{"day": "thursday", "time": "15-17"}],
-            [{"day": "sunday", "time": "9-12"}, {"day": "thursday", "time": "9-12"},{"day": "tuesday", "time": "9-13"}]]
-        }
-    };
-
-    const CloudBasedServicesDesign = {
-        name: "Cloud-based services design",
-        id: "203.3723",
-        lecturer: "Yonatan Goldhirch",
-        faculty: 203,
-        preRequisites: ["203.2110"],
-        points: 3,
-        mandatory: false,
-        semesterA: false,
-        semesterB: true,
-        semesterC: false,
-        grades:[
-            
-        ],
-        lectures: {
-            "B": [[{"day": "sunday", "time": "17-20"}]]
-        }
-    };
-
-    const DesignOfHardwareComponentsForComputerEmbeddedSystems = {
-        name: "Design of hardware components for computer embedded systems",
-        id: "203.3260",
-        lecturer: "Yosi Ben Asher",
-        faculty: 203,
-        preRequisites: ["203.1110","203.1210"],
-        points: 3,
-        mandatory: false,
-        semesterA: false,
-        semesterB: true,
-        semesterC: false,
-        grades:[
-            
-        ],
-        lectures: {
-            "B": [[{"day": "monday", "time": "01-04"}]]
-        }
-    };
-
-    const AlgorithmDesignAndAnalysis = {
-        name: "Algorithm design and analysis",
-        id: "203.2410",
+    const Combinatorialoptimization = {
+        name: "Combinatorial optimization",
+        id: "203.3452",
         lecturer: "Moran Feldman",
         faculty: 203,
-        preRequisites: ["203.2310","203.3510"],
-        points: 5,
-        mandatory: true,
+        preRequisites: [
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "tuesday", "time": "8-12"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const complexity = {
+        name: "Complexity",
+        id: "203.3520",
+        lecturer: "Ronen Sheiltael",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3510",
+                courseName: "Computational Models",
+            },
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods",
+            },
+        ],
+        points: 3,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "monday", "time": "14-17"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const ai = {
+        name: "Intro to AI",
+        id: "203.3610",
+        lecturer: "Shay Bushinski",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3510",
+                courseName: "Computational Models",
+            },
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "friday", "time": "10-14"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const aiLab = {
+        name: "AI Lab",
+        id: "203.3630",
+        lecturer: "Shay Bushinski",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+            {
+                courseId: "203.3610",
+                courseName: "Intro to AI",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "friday", "time": "10-14"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const naturallanguageprocessing = {
+        name: "natural language processing",
+        id: "203.3670",
+        lecturer: "Shuli Vintner",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3770",
+                courseName: "Machine Learning",
+            },
+        ],
+        points: 3,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const ip = {
+        name: "Image Processing",
+        id: "203.3730",
+        lecturer: "Hagit Hel-Or",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.1810",
+                courseName: "Algebra 1",
+            },
+            {
+                courseId: "203.1820",
+                courseName: "Algebra 2",
+            },
+            {
+                courseId: "203.1850",
+                courseName: "Descreet Mathematics",
+            },
+            {
+                courseId: "203.1830",
+                courseName: "Calculus 1",
+            },
+            {
+                courseId: "203.1840",
+                courseName: "Calculus 2",
+            },
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "monday", "time": "8-12"}, {"day": "monday", "time": "14-16"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const cv = {
+        name: "Computer Vision",
+        id: "203.3702",
+        lecturer: "Simon Korman",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3730",
+                courseName: "Image Processing",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "wednesday", "time": "12-16"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const computerGraphics = {
+        name: "Computer Graphics",
+        id: "203.3710",
+        lecturer: "Roi Poranne",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3730",
+                courseName: "Image Processing",
+            },
+            {
+                courseId: "203.1810",
+                courseName: "Algebra 1",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "tuesday", "time": "8-12"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const computerGraphicsLab = {
+        name: "Computer Graphics Lab",
+        id: "203.3704",
+        lecturer: "Roi Poranne",
+        faculty: 203,
+        preRequisites: [
+        ],
+        points: 3,
+        mandatory: false,
         semesterA: true,
         semesterB: true,
         semesterC: false,
@@ -1380,20 +1443,29 @@ function createCourses() {
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "sunday", "time": "18-20"}],
-            [{"day": "monday", "time": "16-18"},{"day": "thursday", "time": "14-16"},{"day": "wednesday", "time": "16-18"}]],
-            "B": [[{"day": "sunday", "time": "14-16"},{"day": "wednesday", "time": "16-18"},{"day": "sunday", "time": "12-14"}],
-            [{"day": "sunday", "time": "14-16"},{"day": "wednesday", "time": "16-18"},{"day": "thursday", "time": "14-16"}]]
-        
-        }
+            "A": [[]],
+            "B": [[]],
+        },
+        feedback: [
+
+        ]
     };
 
-    const InformationTheory = {
-        name: "Information Theory",
-        id: "203.3370",
-        lecturer: "Noga Ron Zevi",
+    const Computationalstudyofhumanbehavior = {
+        name: "Computational study of human behavior",
+        id: "203.3734",
+        lecturer: "Hagit Hel-Or",
         faculty: 203,
-        preRequisites: ["203.2410","203.2480"],
+        preRequisites: [
+            {
+                courseId: "203.1120",
+                courseName: "Object Oriented Programming"
+            },
+            {
+                courseId: "203.3730",
+                courseName: "Image Processing"
+            }
+        ],
         points: 3,
         mandatory: false,
         semesterA: false,
@@ -1403,16 +1475,188 @@ function createCourses() {
             
         ],
         lectures: {
-            "B": [[{"day": "wednesday", "time": "16-19"}]]
-        }
+            "B": [[{"day": "monday", "time": "8-11"}]],
+        },
+        feedback: [
+
+        ]
     };
 
-    const GraphHousingInThePlain = {
-        name: "Graph housing in the plain",
-        id: "203.3595",
-        lecturer: "Alek Vinshtein",
+    const privacypreservingmachinelearninglab = {
+        name: "Privacy-preserving machine learning lab",
+        id: "203.3762",
+        lecturer: "Adi Akvia",
         faculty: 203,
-        preRequisites: ["203.2410"],
+        preRequisites: [
+            {
+                courseId: "203.1120",
+                courseName: "Object Oriented Programming"
+            },
+            {
+                courseId: "203.2310",
+                courseName: "Data Structures"
+            }
+        ],
+        points: 3,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "tuesday", "time": "12-14"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const ml = {
+        name: "Machine Learning",
+        id: "203.3770",
+        lecturer: "Dan Rosenbaum",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.1810",
+                courseName: "Algebra 1",
+            },
+            {
+                courseId: "203.1820",
+                courseName: "Algebra 2",
+            },
+            {
+                courseId: "203.1840",
+                courseName: "Calculus 2",
+            },
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods",
+            },
+            
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: false,
+        semesterB: true,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "B": [[{"day": "sunday", "time": "17-20"}, {"day": "monday", "time": "12-14"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const rl = {
+        name: "Reinforcement Learning",
+        id: "203.3779",
+        lecturer: "Dan Rosenbaum",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3770",
+                courseName: "Machine Learning",
+            },
+        ],
+        points: 3,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "monday", "time": "14-17"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const dl = {
+        name: "Deep Learning",
+        id: "203.3834",
+        lecturer: "Dan Rosenbaum",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.3770",
+                courseName: "Machine Learning",
+            },
+            {
+                courseId: "203.1120",
+                courseName: "Object Oriented Programming",
+            },
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+        ],
+        points: 4,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "sunday", "time": "9-12"}, {"day": "thursday", "time": "14-16"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const quantumComputing = {
+        name: "Quantum Computing",
+        id: "203.3836",
+        lecturer: "Dan Rosenbaum",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.1820",
+                courseName: "Algebra 2",
+            },
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods",
+            },
+        ],
+        points: 3,
+        mandatory: false,
+        semesterA: true,
+        semesterB: false,
+        semesterC: false,
+        grades:[
+            
+        ],
+        lectures: {
+            "A": [[{"day": "sunday", "time": "9-12"}]],
+        },
+        feedback: [
+
+        ]
+    };
+
+    const cloudAndBigData = {
+        name: "Cloud And Big Data",
+        id: "203.3840",
+        lecturer: "Gil Vernik",
+        faculty: 203,
+        preRequisites: [
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms",
+            },
+        ],
         points: 2,
         mandatory: false,
         semesterA: false,
@@ -1422,49 +1666,98 @@ function createCourses() {
             
         ],
         lectures: {
-            "B": [[{"day": "wednesday", "time": "18-20"}]]
-        }
+            "B": [[{"day": "monday", "time": "11-13"}]],
+        },
+        feedback: [
+
+        ]
     };
 
-    const ProbabilisticMethods = {
-        name: "Probabilistic methods",
-        id: "203.2480",
-        lecturer: "Simon Korman",
+    const compression = {
+        name: "Image and Sound Compression",
+        id: "203.3880",
+        lecturer: "Nimrod Peleg",
         faculty: 203,
-        preRequisites: ["203.2310","203.1840","204.1810"],
-        points: 5,
-        mandatory: true,
-        semesterA: true,
-        semesterB: true,
-        semesterC: false,
-        grades:[
-            
+        preRequisites: [
+            {
+                courseId: "203.1810",
+                courseName: "Algebra 1",
+            },
+            {
+                courseId: "203.1820",
+                courseName: "Algebra 2",
+            },
+            {
+                courseId: "203.1850",
+                courseName: "Descreet Mathematics",
+            },
+            {
+                courseId: "203.1830",
+                courseName: "Calculus 1",
+            },
+            {
+                courseId: "203.1840",
+                courseName: "Calculus 2",
+            },
         ],
-        lectures: {
-            "A": [[{"day": "wednesday", "time": "08-12"},{"day": "monday", "time": "10-12"}],
-            [{"day": "monday", "time": "16-18"},{"day": "wednesday", "time": "18-20"}]],
-            "B": [[{"day": "sunday", "time": "10-12"},{"day": "tuesday", "time": "10-12"},{"day": "sunday", "time": "08-10"}],
-            [{"day": "sunday", "time": "14-16"},{"day": "wednesday", "time": "16-18"},{"day": "tuesday", "time": "14-16"}]]
-        
-        }
-    };
-
-    const CommunicationNetworks = {
-        name: "CommunicationNetworks",
-        id: "203.3210",
-        lecturer: "Orr Dunkelman",
-        faculty: 203,
-        preRequisites: ["203.2480"],
-        points: 4,
+        points: 3,
         mandatory: false,
-        semesterA: false,
-        semesterB: true,
+        semesterA: true,
+        semesterB: false,
         semesterC: false,
         grades:[
             
         ],
         lectures: {
-            "B": [[{"day": "wednesday", "time": "12-14"},{"day": "wednesday", "time": "08-10"}]]
-        }
+            "A": [[{"day": "thursday", "time": "16-19"}]],
+        },
+        feedback: [
+
+        ]
     };
+
+    const allCourses = [
+        introToCS,
+        calculus1,
+        calculus2,
+        algebra1,
+        algebra2,
+        descreetMathematics,
+        introToHW,
+        probabilisticMethods,
+        oop,
+        Assembly,
+        dataStructures,
+        os,
+        compilers,
+        algorithms,
+        logics,
+        se,
+        networking,
+        formalVerification,
+        bigDataInCloud,
+        informationTheory,
+        computationalModels,
+        randomnessInCalculation,
+        cryptography,
+        Computerandnetworksecurity,
+        Combinatorialoptimization,
+        complexity,
+        ai,
+        aiLab,
+        naturallanguageprocessing,
+        ip,
+        cv,
+        computerGraphics,
+        computerGraphicsLab,
+        Computationalstudyofhumanbehavior,
+        privacypreservingmachinelearninglab,
+        ml,
+        rl,
+        dl,
+        quantumComputing,
+        cloudAndBigData,
+        compression,
+    ];
+
 }
