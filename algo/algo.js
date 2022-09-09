@@ -1484,6 +1484,9 @@ function fillCalendar(user, courses, minPoints, maxPoints, semester, mandatory, 
     // get available courses and filter by semester
     let availableCourses = getAvailableCourses(user, courses, semester);
 
+    // shuffle
+    availableCourses.sort(() => Math.random() - 0.5);
+
     // if (mandatory) {
     //     let mandatory = availableCourses.filter(course => course.mandatory);
     //     let notMandatory = availableCourses.filter(course => !course.mandatory);
