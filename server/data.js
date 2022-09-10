@@ -9,7 +9,16 @@ function createTeachers(){
             "Formal methods",
             "game theory"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.2310",
+                courseName: "Data Structures"
+            },
+            {
+                courseId: "203.3223",
+                courseName: "Formal Verification"
+            },
+        ]
     };
 
     const ritaOsedtsi = {
@@ -22,7 +31,7 @@ function createTeachers(){
             "Computer Vision",
             "Machine Learning"
         ],
-        courses: Array,
+        courses: []
     };
 
     const yosiBenAsher = {
@@ -36,7 +45,12 @@ function createTeachers(){
             "Operating Systems",
             "Compilers"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.2130",
+                courseName: "Compilers"
+            },
+        ]
     };
 
     const orrDunkelman = {
@@ -49,7 +63,20 @@ function createTeachers(){
             "Cryptography and Cryptanalysis",
             "Computer security"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3210",
+                courseName: "Networking"
+            },
+            {
+                courseId: "203.3444",
+                courseName: "Cryptography"
+            },
+            {
+                courseId: "203.3448",
+                courseName: "Computer and network security"
+            },
+        ]
     };
 
     const hagitHelOr = {
@@ -61,7 +88,16 @@ function createTeachers(){
         specialties: [
             "Computer Vision"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3730",
+                courseName: "Image Processing"
+            },
+            {
+                courseId: "203.3734",
+                courseName: "Computational study of human behavior"
+            },
+        ]
     };
 
     const orenWeiman = {
@@ -74,7 +110,9 @@ function createTeachers(){
             "Algorithms",
             "Data Structures"
         ],
-        courses: Array,
+        courses: [
+
+        ]
     };
 
     const shulyVintner = {
@@ -86,7 +124,16 @@ function createTeachers(){
         specialties: [
             "Computational linguistics"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.1110",
+                courseName: "Introduction To Computer Science"
+            },
+            {
+                courseId: "203.3670",
+                courseName: "natural language processing"
+            },
+        ]
     };
 
     const alekVinshtein = {
@@ -99,7 +146,9 @@ function createTeachers(){
             "Algorithms",
             "Complexity"
         ],
-        courses: Array,
+        courses: [
+
+        ]
     };
 
     const landauMenahemGad = {
@@ -112,7 +161,9 @@ function createTeachers(){
             "Algorithms",
             "Computational Biology"
         ],
-        courses: Array,
+        courses: [
+
+        ]
     };
 
     const orMeir = {
@@ -125,7 +176,9 @@ function createTeachers(){
             "Theory of computer science",
             "Computational complexity"
         ],
-        courses: Array,
+        courses: [
+
+        ]
     };
 
     const ilanNewman = {
@@ -138,7 +191,12 @@ function createTeachers(){
             "Algorithms",
             "Complexity"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3510",
+                courseName: "Computational Models"
+            }
+        ]
     };
 
     const adiAkvia = {
@@ -153,7 +211,12 @@ function createTeachers(){
             "Safe calculation",
             "Big Data algorithms"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3762",
+                courseName: "Privacy preserving machine learning lab"
+            }
+        ]
     };
 
     const roiPoranne = {
@@ -166,7 +229,16 @@ function createTeachers(){
             "Geometric processing",
             "Calculus production"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3710",
+                courseName: "Computer Graphics"
+            },
+            {
+                courseId: "203.3704",
+                courseName: "Computer Graphics lab"
+            }
+        ]
     };
 
     const danFeldman = {
@@ -178,7 +250,20 @@ function createTeachers(){
         specialties: [
             "Robotics and Big Data"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.1120",
+                courseName: "Object Oriented Programming"
+            },
+            {
+                courseId: "203.1130",
+                courseName: "Assembly Languages"
+            },
+            {
+                courseId: "203.3284",
+                courseName: "Big Data In Cloud"
+            },
+        ]
     };
 
     const moranFeldman = {
@@ -191,7 +276,16 @@ function createTeachers(){
             "Algorithms",
             "Algorithmic Game Theory"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.2410",
+                courseName: "Algorithms"
+            },
+            {
+                courseId: "203.3452",
+                courseName: "Combinatorial optimization"
+            },
+        ]
     };
 
     const rahelKolodny = {
@@ -203,7 +297,12 @@ function createTeachers(){
         specialties: [
             "Computational Biology"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.2110",
+                courseName: "Operating Systems"
+            },
+        ]
     };
 
     const simonKorman = {
@@ -215,7 +314,12 @@ function createTeachers(){
         specialties: [
             "Computer Vision"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3702",
+                courseName: "Computer Vision"
+            },
+        ]
     };
 
 
@@ -229,7 +333,8 @@ function createTeachers(){
             "Probabilistic pattern recognition",
             "Monitoring in distributed and dynamic systems"
         ],
-        courses: Array,
+        courses: [
+        ]
     };
 
 
@@ -244,7 +349,8 @@ function createTeachers(){
             "Discrete Mathematics",
             "Complexity of calculations"
         ],
-        courses: Array,
+        courses: [
+        ]
     };
 
 
@@ -258,7 +364,28 @@ function createTeachers(){
             "Machine Learning",
             "Computer Vision"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.2480",
+                courseName: "Probabilistic Methods"
+            },
+            {
+                courseId: "203.3770",
+                courseName: "Machine Learning"
+            },
+            {
+                courseId: "203.3779",
+                courseName: "Reinforcement Learning"
+            },
+            {
+                courseId: "203.3834",
+                courseName: "Deep Learning"
+            },
+            {
+                courseId: "203.3836",
+                courseName: "Quantum Computing"
+            },
+        ]
     };
 
     const nogaRonZevi = {
@@ -272,7 +399,16 @@ function createTeachers(){
             "Computational complexity",
             "Encryption theory"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.1850",
+                courseName: "Descreet Mathematics"
+            },
+            {
+                courseId: "203.3370",
+                courseName: "Information Theory"
+            },
+        ]
     };
 
     const ronenSheiltael = {
@@ -285,7 +421,16 @@ function createTeachers(){
             "Theory of computer science",
             "The complexity of the study of randomness as a resource in calculation"
         ],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3426",
+                courseName: "Randomness in calculation"
+            },
+            {
+                courseId: "203.3520",
+                courseName: "Complexity"
+            },
+        ]
     };
 
     const shayBushinski = {
@@ -295,17 +440,27 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3610",
+                courseName: "Intro to AI"
+            },
+            {
+                courseId: "203.3630",
+                courseName: "AI Lab"
+            },
+        ]
     };
 
     const ariBenEphraim = {
-        name: "Ari Ben-Ephraim",
+        name: "Ari Ben Ephraim",
         email: "ari.benephraim@gmail.com",
         id: 24,
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const erezGerlitz = {
@@ -315,7 +470,12 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.1210",
+                courseName: "Introduction to Hardware"
+            },
+        ]
     };
 
     const nimrodPeleg = {
@@ -325,17 +485,27 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3880",
+                courseName: "Image and Sound Compression"
+            },
+        ]
     };
 
     const orenBenZwi = {
-        name: "Oren Ben-Zwi",
+        name: "Oren Ben Zwi",
         email: "oren.benzwi@gmail.com",
         id: 27,
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.2850",
+                courseName: "Intro to Logics"
+            },
+        ]
     };
 
     const amiViselter = {
@@ -345,7 +515,24 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.1830",
+                courseName: "Calculus 1"
+            },
+            {
+                courseId: "203.1840",
+                courseName: "Calculus 2"
+            },
+            {
+                courseId: "203.1810",
+                courseName: "Algebra 1"
+            },
+            {
+                courseId: "203.1820",
+                courseName: "Algebra 2"
+            },
+        ]
     };
 
     const gilVernik = {
@@ -355,7 +542,12 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3840",
+                courseName: "Cloud And Big Data"
+            },
+        ]
     };
 
     const malkiGrosman = {
@@ -365,7 +557,12 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+            {
+                courseId: "203.3140",
+                courseName: "Software Engineering"
+            },
+        ]
     };
 
     const eranLambooij = {
@@ -375,7 +572,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const ibrahimJubran= {
@@ -385,7 +583,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const yaelZepkowitz= {
@@ -395,7 +594,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const eliasJadon= {
@@ -405,7 +605,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const loayMualem= {
@@ -415,7 +616,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const arielAmsalem= {
@@ -425,7 +627,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const islamAkaria= {
@@ -435,7 +638,8 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
 
     const yonatanGoldhirch= {
@@ -445,15 +649,61 @@ function createTeachers(){
         room: 0,
         phone: "",
         specialties: [],
-        courses: Array,
+        courses: [
+        ]
     };
+
+    // add all objects above to array
+    const allLecturers = [
+        guyAvni,
+        ritaOsedtsi,
+        yosiBenAsher,
+        orrDunkelman,
+        hagitHelOr,
+        orenWeiman,
+        shulyVintner,
+        alekVinshtein,
+        landauMenahemGad,
+        orMeir,
+        ilanNewman,
+        adiAkvia,
+        roiPoranne,
+        danFeldman,
+        moranFeldman,
+        rahelKolodny,
+        simonKorman,
+        danielKeren,
+        yuriRabinovich,
+        danRozenbaum,
+        nogaRonZevi,
+        ronenSheiltael,
+        shayBushinski,
+        ariBenEphraim,
+        erezGerlitz,
+        nimrodPeleg,
+        orenBenZwi,
+        amiViselter,
+        gilVernik,
+        malkiGrosman,
+        eranLambooij,
+        ibrahimJubran,
+        yaelZepkowitz,
+        eliasJadon,
+        loayMualem,
+        arielAmsalem,
+        islamAkaria,
+        yonatanGoldhirch
+    ];
+
+    module.exports = allLecturers;
+
 }
 
 function createCourses() {
     const introToCS = {
         name: "Introduction To Computer Science",
         id: "203.1110",
-        lecturer: "Shuli Vintner",
+        lecturer: "Shuly Vintner",
         faculty: 203,
         preRequisites: [],
         points: 5,
@@ -880,7 +1130,7 @@ function createCourses() {
     const logics = {
         name: "Intro to Logics",
         id: "203.2850",
-        lecturer: "Oren Ben-Zwi",
+        lecturer: "Oren Ben Zwi",
         faculty: 203,
         preRequisites: [
             {
@@ -1298,7 +1548,7 @@ function createCourses() {
     const naturallanguageprocessing = {
         name: "natural language processing",
         id: "203.3670",
-        lecturer: "Shuli Vintner",
+        lecturer: "Shuly Vintner",
         faculty: 203,
         preRequisites: [
             {
@@ -1433,6 +1683,10 @@ function createCourses() {
         lecturer: "Roi Poranne",
         faculty: 203,
         preRequisites: [
+            {
+                courseId: "203.3710",
+                courseName: "Computer Graphics",
+            },
         ],
         points: 3,
         mandatory: false,
@@ -1483,7 +1737,7 @@ function createCourses() {
     };
 
     const privacypreservingmachinelearninglab = {
-        name: "Privacy-preserving machine learning lab",
+        name: "Privacy preserving machine learning lab",
         id: "203.3762",
         lecturer: "Adi Akvia",
         faculty: 203,
@@ -1760,4 +2014,5 @@ function createCourses() {
         compression,
     ];
 
+    module.exports = allCourses;
 }
