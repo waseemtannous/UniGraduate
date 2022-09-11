@@ -66,6 +66,7 @@ export function getAvailableCourses(user, courses, semester) {
 export function addLesturesToAssignment(lectures, assignment, course) {
     let newAssignment = JSON.parse(JSON.stringify(assignment));
 
+
     for (let i = 0; i < lectures.length; i++) {
         const lecture = lectures[i];
         const day = lecture.day;
@@ -100,8 +101,10 @@ export function csp(courses, points, assignment, assignmentCourses, assignmentPo
             continue;
         }
 
+        
         let allLecturesGroupes = courses[i].lectures[semester];
-
+        
+        
         for (let j = 0; j < allLecturesGroupes.length; j++) {
             let lecturesGroup = allLecturesGroupes[j];
             let newAssignment = addLesturesToAssignment(lecturesGroup, assignment, courses[i]);
@@ -131,10 +134,9 @@ export function fillCalendar(user, courses, minPoints, maxPoints, semester, mand
     // let availableCourses = getAvailableCourses(user, courses, semester);
     let availableCourses = courses;
 
-    console.log(availableCourses);
 
     // shuffle
-    availableCourses.sort(() => Math.random() - 0.5);
+    // availableCourses.sort(() => Math.random() - 0.5);
 
     // if (mandatory) {
     //     let mandatory = availableCourses.filter(course => course.mandatory);
@@ -146,7 +148,6 @@ export function fillCalendar(user, courses, minPoints, maxPoints, semester, mand
 
     for (let i = minPoints; i <= maxPoints; i++) {
         let assignment = csp(availableCourses, i, workingHours, [], 0, semester);
-        console.log("assignment", assignment);
         if (assignment) {
             assignments.push(assignment);
         }

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import Select from 'react-select'
 
-// import fucnctions from './utils.js';
-
 import { getAvailableCourses, addLesturesToAssignment, csp, fillCalendar } from './utils.js';
 
 
@@ -45,6 +43,8 @@ class CalendarBuilder extends Component {
         availableCoursesSelect: [],
         calendar: calendar,
         workingHours: workingHours,
+        allCaleldars: [],
+        calendarIndex: 0
     };
   }
 
@@ -78,7 +78,6 @@ class CalendarBuilder extends Component {
         availableCourses: availableCourses,
         availableCoursesSelect: availableCoursesSelect,
     });
-    console.log(availableCourses);
     }
 
   semesterFilter() {
@@ -211,9 +210,14 @@ class CalendarBuilder extends Component {
         const minPoints = this.state.minPoints;
         const maxPoints = this.state.maxPoints;
         const workingHours = this.state.workingHours;
-        let calendar = this.state.calendar;
-
-        console.log(calendar);
+        let calendar = [];
+    for (let i = 0; i < 12; i++) {
+        let row = [];
+        for (let j = 0; j < 6; j++) {
+            row.push("");
+        }
+        calendar.push(row);
+    }
 
         // loop over working hours
         for (let i = 0; i < 12; i++) {
@@ -226,15 +230,11 @@ class CalendarBuilder extends Component {
             }
         }
 
-        console.log("transpose", this.transpose(calendar));
+        const allCaleldars = fillCalendar(user, courses, minPoints, maxPoints, semester, false, this.transpose(calendar));
 
-
-
-        const newCalendars = fillCalendar(user, courses, minPoints, maxPoints, semester, false, this.transpose(calendar));
-
-        console.log(newCalendars[0]);
         this.setState({
-            calendar: this.transposeT(newCalendars[0]),
+            allCaleldars: allCaleldars,
+            calendar: this.transposeT(allCaleldars[this.state.calendarIndex]),
         });
     }
 
@@ -295,7 +295,6 @@ class CalendarBuilder extends Component {
         const course = this.state.calendar[hour][day];
 
         if (course != "" && course != "working") {
-            console.log(course);
             return(
                 <div className="card">
                     <div className="card-body">
@@ -349,13 +348,50 @@ class CalendarBuilder extends Component {
         );
     }
 
+    displayAllCalendars() {
+        return(
+            <div>
+                {this.state.allCaleldars.map((calendar, index) => {
+                    let courses = [];
+                    for(let i = 0; i < calendar.length; i++) {
+                        for(let j = 0; j < calendar[0].length; j++) {
+                            const course = calendar[i][j];
+                            if (typeof(course) == "object" && !courses.includes(course.name)) {
+                                courses.push(course.name);
+                            }
+                        }
+                    }
+                    return(
+                        <button onClick={() => this.setState({calendarIndex: index, calendar: this.state.allCaleldars[index]})}>
+                            <div>
+                            <h3>Calendar {index}</h3>
+                            {
+                                courses.map(course => {
+                                  return(
+                                    <p>{course}</p>
+                                  );  
+                                })
+                            }
+                        </div>
+                        </button>
+                    );
+                })}
+            </div>
+        );
+    }
+
     render() { 
     return (
       <div className="container-fluid h-100">
-        <h1>Calendar Builder</h1>
+        <h1>
+            Calendar Builder         
+        </h1>
+        
         <hr></hr>
+
         {this.filters()}
         <hr></hr>
+        {this.displayAllCalendars()}
         {this.displayCalendar()}
       </div>
       );

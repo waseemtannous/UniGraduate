@@ -16,7 +16,7 @@ class Home extends Component {
                     window.location.href = '/CalendarBuilder';
                 }}>Calendar Builder</button>
 
-                
+
                 <button onClick={() => {
                     window.location.href = '/Grades';
                 }}>Grades</button>

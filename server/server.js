@@ -632,7 +632,7 @@ app.get('/createCourses11', async (req, res) => {
         ],
         lectures: {
             "B": [[{"day": 4, "time": "8-10"}, {"day": 0, "time": "8-10"}],
-                [{"day": 4, "time": "8-10"}, {"day": 1, "time": "16-18"}]
+                [{"day": 4, "time": "8-10"}, {"day": 1, "time": "16-18"}],
                 [{"day": 4, "time": "8-10"}, {"day": 3, "time": "12-14"}]],
         },
         feedback: [
@@ -774,8 +774,8 @@ app.get('/createCourses11', async (req, res) => {
         ],
         points: 3,
         mandatory: false,
-        semesterA: false,
-        semesterB: true,
+        semesterA: true,
+        semesterB: false,
         semesterC: false,
         grades:[
             
