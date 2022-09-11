@@ -77,7 +77,7 @@ export function addLesturesToAssignment(lectures, assignment, course) {
         end = end - 8;
 
         for (let j = start; j < end; j++) {
-            if (newAssignment[day][j] === "") {
+            if (newAssignment[day][j] == "") {
                 newAssignment[day][j] = course;
             } else {
                 return null;
@@ -128,7 +128,10 @@ export function csp(courses, points, assignment, assignmentCourses, assignmentPo
 
 export function fillCalendar(user, courses, minPoints, maxPoints, semester, mandatory, workingHours) {
     // get available courses and filter by semester
-    let availableCourses = getAvailableCourses(user, courses, semester);
+    // let availableCourses = getAvailableCourses(user, courses, semester);
+    let availableCourses = courses;
+
+    console.log(availableCourses);
 
     // shuffle
     availableCourses.sort(() => Math.random() - 0.5);
@@ -143,6 +146,7 @@ export function fillCalendar(user, courses, minPoints, maxPoints, semester, mand
 
     for (let i = minPoints; i <= maxPoints; i++) {
         let assignment = csp(availableCourses, i, workingHours, [], 0, semester);
+        console.log("assignment", assignment);
         if (assignment) {
             assignments.push(assignment);
         }

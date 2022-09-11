@@ -16,6 +16,25 @@ class CalendarBuilder extends Component {
 
     const user  = JSON.parse(sessionStorage.getItem('user'));
 
+    let calendar = [];
+    for (let i = 0; i < 12; i++) {
+        let row = [];
+        for (let j = 0; j < 6; j++) {
+            row.push("");
+        }
+        calendar.push(row);
+    }
+
+    let workingHours = [];
+    for (let i = 0; i < 12; i++) {
+        let row = [];
+        for (let j = 0; j < 6; j++) {
+            row.push(false);
+        }
+        workingHours.push(row);
+    }
+
+
     this.state = {
         user: user,
         semester: "A",
@@ -24,6 +43,8 @@ class CalendarBuilder extends Component {
         minPoints: 10,
         maxPoints: 15,
         availableCoursesSelect: [],
+        calendar: calendar,
+        workingHours: workingHours,
     };
   }
 
@@ -48,15 +69,20 @@ class CalendarBuilder extends Component {
   handleSemesterChange = (event) => {
     const semester = event.target.value;
     const availableCourses = getAvailableCourses(this.state.user, this.state.courses, semester);
+    const availableCoursesSelect = [];
+    for (let i = 0; i < availableCourses.length; i++) {
+        availableCoursesSelect.push({value: availableCourses[i].name, label: availableCourses[i].name});
+    }
     this.setState({
         semester: semester,
-        availableCourses: availableCourses
+        availableCourses: availableCourses,
+        availableCoursesSelect: availableCoursesSelect,
     });
     console.log(availableCourses);
     }
 
   semesterFilter() {
-    // radio buttons selector with A, B, C
+    // radio buttons selector with A, B
     return (
         <div className="row">
             <h3>Choose semester</h3>
@@ -152,7 +178,90 @@ class CalendarBuilder extends Component {
         );
     }
 
+    transpose(original) {
+        let copy = [];
+        for (let i = 0; i < 6; i++) {
+            let row = [];
+            for (let j = 0; j < 12; j++) {
+                row.push(original[j][i]);
+            }
+            copy.push(row);
+        }
+        return copy;
+    }
 
+    transposeT(original) {
+        let copy = [];
+        for (let i = 0; i < 12; i++) {
+            let row = [];
+            for (let j = 0; j < 6; j++) {
+                row.push(original[j][i]);
+            }
+            copy.push(row);
+        }
+        return copy;
+    }
+
+
+    generateCalendar() {
+        // generate calendar
+        const user = this.state.user;
+        const courses = this.state.availableCourses;
+        const semester = this.state.semester;
+        const minPoints = this.state.minPoints;
+        const maxPoints = this.state.maxPoints;
+        const workingHours = this.state.workingHours;
+        let calendar = this.state.calendar;
+
+        console.log(calendar);
+
+        // loop over working hours
+        for (let i = 0; i < 12; i++) {
+            for (let j = 0; j < 6; j++) {
+                if (workingHours[i][j]) {
+                    calendar[i][j] = "working";
+                } else {
+                    calendar[i][j] = "";
+                }
+            }
+        }
+
+        console.log("transpose", this.transpose(calendar));
+
+
+
+        const newCalendars = fillCalendar(user, courses, minPoints, maxPoints, semester, false, this.transpose(calendar));
+
+        console.log(newCalendars[0]);
+        this.setState({
+            calendar: this.transposeT(newCalendars[0]),
+        });
+    }
+
+    clearCalendar() {
+        let calendar = [];
+        for (let i = 0; i < 12; i++) {
+            let row = [];
+            for (let j = 0; j < 6; j++) {
+                row.push("");
+            }
+            calendar.push(row);
+        }
+
+        let workingHours = [];
+        for (let i = 0; i < 12; i++) {
+            let row = [];
+            for (let j = 0; j < 6; j++) {
+                row.push(false);
+            }
+            workingHours.push(row);
+        }
+
+        this.setState({
+            calendar: calendar,
+            workingHours: workingHours,
+        });
+    }
 
 
   filters() {
@@ -161,14 +270,84 @@ class CalendarBuilder extends Component {
         <h1 className='text-center'>Filters</h1>
         <div className="col-6">
           {this.semesterFilter()}
+          <hr />
           {this.pointsFilter()}
         </div>
         <div className="col-6">
           {this.coursesFilter()}
+          <hr />
+          <button onClick={() => this.generateCalendar()} className="btn btn-primary btn-lg btn-block">Generate</button>
+          <button onClick={() => this.clearCalendar()} className="btn btn-primary btn-lg btn-block">Clear</button>
         </div>
       </div>
     );
   }
+
+    setWorkingHour(hour, day) {
+        let workingHours = this.state.workingHours;
+        workingHours[hour][day] = !this.state.workingHours[hour][day];
+        this.setState({
+            workingHours: workingHours,
+        });
+    }
+
+    getCourseByHourAndDay(hour, day) {
+        const course = this.state.calendar[hour][day];
+
+        if (course != "" && course != "working") {
+            console.log(course);
+            return(
+                <div className="card">
+                    <div className="card-body">
+                        <p className="card-title">Name: {course.name}</p>
+                        <p className="card-text">Points: {course.points}</p>
+                    </div>
+                </div>
+            )
+        }
+        return "";
+    }
+
+    displayCalendar() {
+        // display grid of calendar from 8:00 to 20:00
+        return (
+            <div className="row">
+                <div className="col-12">
+                    <table className="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Sunday</th>
+                            <th scope="col">Monday</th>
+                            <th scope="col">Tuesday</th>
+                            <th scope="col">Wednesday</th>
+                            <th scope="col">Thursday</th>
+                            <th scope="col">Friday</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {this.state.calendar.map((row, hour) => {
+                            return (
+                                <tr >
+                                    <td>
+                                        {8 + hour}:00
+                                    </td>
+                                    {row.map((obj, day) => {
+                                        return (
+                                            <td className={this.state.workingHours[hour][day] ? "bg-danger" : "bg-white"} onClick={() => this.setWorkingHour(hour, day)}>
+                                                {this.getCourseByHourAndDay(hour, day)}
+                                            </td>
+                                        );
+                                    })}
+                                </tr>
+                            );
+                        })}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        );
+    }
 
     render() { 
     return (
@@ -176,6 +355,8 @@ class CalendarBuilder extends Component {
         <h1>Calendar Builder</h1>
         <hr></hr>
         {this.filters()}
+        <hr></hr>
+        {this.displayCalendar()}
       </div>
       );
     }
