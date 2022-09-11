@@ -199,8 +199,8 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "10-12"}, {"day": "monday", "time": "12-14"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "10-12"}, {"day": "tuesday", "time": "14-16"}]],
+            "A": [[{"day": 0, "time": "14-16"}, {"day": 3, "time": "10-12"}, {"day": 1, "time": "12-14"}],
+                [{"day": 0, "time": "14-16"}, {"day": 3, "time": "10-12"}, {"day": 2, "time": "14-16"}]],
         },
         feedback: [
     
@@ -222,12 +222,12 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "sunday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "tuesday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "wednesday", "time": "10-12"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "wednesday", "time": "18-20"}]],
-            "B": [[{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "12-14"}, {"day": "sunday", "time": "10-12"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "12-14"}, {"day": "monday", "time": "14-16"}]],
+            "A": [[{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 0, "time": "14-16"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 2, "time": "14-16"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 3, "time": "10-12"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 3, "time": "18-20"}]],
+            "B": [[{"day": 0, "time": "12-14"}, {"day": 3, "time": "12-14"}, {"day": 0, "time": "10-12"}],
+                [{"day": 0, "time": "12-14"}, {"day": 3, "time": "12-14"}, {"day": 1, "time": "14-16"}]],
         },
         feedback: [
     
@@ -254,12 +254,12 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "sunday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "tuesday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "wednesday", "time": "10-12"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "8-10"}, {"day": "wednesday", "time": "18-20"}]],
-            "B": [[{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "12-14"}, {"day": "sunday", "time": "10-12"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "12-14"}, {"day": "monday", "time": "14-16"}]],
+            "A": [[{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 0, "time": "14-16"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 2, "time": "14-16"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 3, "time": "10-12"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "8-10"}, {"day": 3, "time": "18-20"}]],
+            "B": [[{"day": 0, "time": "12-14"}, {"day": 3, "time": "12-14"}, {"day": 0, "time": "10-12"}],
+                [{"day": 0, "time": "12-14"}, {"day": 3, "time": "12-14"}, {"day": 1, "time": "14-16"}]],
         },
         feedback: [
     
@@ -283,13 +283,13 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "wednesday", "time": "12-14"}, {"day": "thursday", "time": "14-16"}, {"day": "monday", "time": "12-14"}],
-                [{"day": "wednesday", "time": "12-14"}, {"day": "thursday", "time": "14-16"}, {"day": "tuesday", "time": "16-18"}],
-                [{"day": "wednesday", "time": "12-14"}, {"day": "thursday", "time": "14-16"}, {"day": "wednesday", "time": "16-18"}],
-                [{"day": "wednesday", "time": "12-14"}, {"day": "thursday", "time": "14-16"}, {"day": "sunday", "time": "18-20"}]],
+            "A": [[{"day": 3, "time": "12-14"}, {"day": 4, "time": "14-16"}, {"day": 1, "time": "12-14"}],
+                [{"day": 3, "time": "12-14"}, {"day": 4, "time": "14-16"}, {"day": 2, "time": "16-18"}],
+                [{"day": 3, "time": "12-14"}, {"day": 4, "time": "14-16"}, {"day": 3, "time": "16-18"}],
+                [{"day": 3, "time": "12-14"}, {"day": 4, "time": "14-16"}, {"day": 0, "time": "18-20"}]],
             
-            "B": [[{"day": "sunday", "time": "16-18"}, {"day": "wednesday", "time": "14-16"}, {"day": "monday", "time": "16-18"}],
-                [{"day": "sunday", "time": "16-18"}, {"day": "wednesday", "time": "14-16"}, {"day": "wednesday", "time": "16-18"}]],
+            "B": [[{"day": 0, "time": "16-18"}, {"day": 3, "time": "14-16"}, {"day": 1, "time": "16-18"}],
+                [{"day": 0, "time": "16-18"}, {"day": 3, "time": "14-16"}, {"day": 3, "time": "16-18"}]],
         },
         feedback: [
     
@@ -316,12 +316,12 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "tuesday", "time": "16-18"}, {"day": "wednesday", "time": "16-18"}, {"day": "monday", "time": "8-10"}],
-                [{"day": "tuesday", "time": "16-18"}, {"day": "wednesday", "time": "16-18"}, {"day": "wednesday", "time": "12-14"}]],
+            "A": [[{"day": 2, "time": "16-18"}, {"day": 3, "time": "16-18"}, {"day": 1, "time": "8-10"}],
+                [{"day": 2, "time": "16-18"}, {"day": 3, "time": "16-18"}, {"day": 3, "time": "12-14"}]],
             
-            "B": [[{"day": "wednesday", "time": "14-16"}, {"day": "thursday", "time": "16-18"}, {"day": "sunday", "time": "16-18"}],
-                [{"day": "wednesday", "time": "14-16"}, {"day": "thursday", "time": "16-18"}, {"day": "wednesday", "time": "16-18"}],
-                [{"day": "wednesday", "time": "14-16"}, {"day": "thursday", "time": "16-18"}, {"day": "thursday", "time": "18-20"}]],
+            "B": [[{"day": 3, "time": "14-16"}, {"day": 4, "time": "16-18"}, {"day": 0, "time": "16-18"}],
+                [{"day": 3, "time": "14-16"}, {"day": 4, "time": "16-18"}, {"day": 3, "time": "16-18"}],
+                [{"day": 3, "time": "14-16"}, {"day": 4, "time": "16-18"}, {"day": 4, "time": "18-20"}]],
         },
         feedback: [
     
@@ -344,14 +344,14 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "16-18"}, {"day": "wednesday", "time": "8-10"}, {"day": "sunday", "time": "12-14"}],
-                [{"day": "sunday", "time": "16-18"}, {"day": "wednesday", "time": "8-10"}, {"day": "monday", "time": "16-18"}],
-                [{"day": "sunday", "time": "16-18"}, {"day": "wednesday", "time": "8-10"}, {"day": "wednesday", "time": "14-16"}],
-                [{"day": "sunday", "time": "16-18"}, {"day": "wednesday", "time": "8-10"}, {"day": "sunday", "time": "18-20"}]],
+            "A": [[{"day": 0, "time": "16-18"}, {"day": 3, "time": "8-10"}, {"day": 0, "time": "12-14"}],
+                [{"day": 0, "time": "16-18"}, {"day": 3, "time": "8-10"}, {"day": 1, "time": "16-18"}],
+                [{"day": 0, "time": "16-18"}, {"day": 3, "time": "8-10"}, {"day": 3, "time": "14-16"}],
+                [{"day": 0, "time": "16-18"}, {"day": 3, "time": "8-10"}, {"day": 0, "time": "18-20"}]],
             
-            "B": [[{"day": "sunday", "time": "8-10"}, {"day": "wednesday", "time": "8-10"}, {"day": "monday", "time": "8-10"}],
-                [{"day": "sunday", "time": "8-10"}, {"day": "wednesday", "time": "8-10"}, {"day": "thursday", "time": "8-10"}],
-                [{"day": "sunday", "time": "8-10"}, {"day": "wednesday", "time": "8-10"}, {"day": "monday", "time": "18-20"}]],
+            "B": [[{"day": 0, "time": "8-10"}, {"day": 3, "time": "8-10"}, {"day": 1, "time": "8-10"}],
+                [{"day": 0, "time": "8-10"}, {"day": 3, "time": "8-10"}, {"day": 4, "time": "8-10"}],
+                [{"day": 0, "time": "8-10"}, {"day": 3, "time": "8-10"}, {"day": 1, "time": "18-20"}]],
         },
         feedback: [
     
@@ -374,10 +374,10 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "monday", "time": "8-10"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "wednesday", "time": "16-18"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "thursday", "time": "18-20"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "14-16"}, {"day": "wednesday", "time": "10-12"}]],
+            "A": [[{"day": 0, "time": "14-16"}, {"day": 3, "time": "14-16"}, {"day": 1, "time": "8-10"}],
+                [{"day": 0, "time": "14-16"}, {"day": 3, "time": "14-16"}, {"day": 3, "time": "16-18"}],
+                [{"day": 0, "time": "14-16"}, {"day": 3, "time": "14-16"}, {"day": 4, "time": "18-20"}],
+                [{"day": 0, "time": "14-16"}, {"day": 3, "time": "14-16"}, {"day": 3, "time": "10-12"}]],
         },
         feedback: [
     
@@ -412,9 +412,9 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}, {"day": "monday", "time": "12-14"}],
-                [{"day": "sunday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}, {"day": "tuesday", "time": "10-12"}],
-                [{"day": "sunday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}, {"day": "thursday", "time": "16-18"}]],
+            "A": [[{"day": 0, "time": "10-12"}, {"day": 4, "time": "14-16"}, {"day": 1, "time": "12-14"}],
+                [{"day": 0, "time": "10-12"}, {"day": 4, "time": "14-16"}, {"day": 2, "time": "10-12"}],
+                [{"day": 0, "time": "10-12"}, {"day": 4, "time": "14-16"}, {"day": 4, "time": "16-18"}]],
         },
         feedback: [
     
@@ -441,9 +441,9 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "tuesday", "time": "14-17"}, {"day": "sunday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "14-17"}, {"day": "monday", "time": "12-14"}],
-                [{"day": "tuesday", "time": "14-17"}, {"day": "wednesday", "time": "10-12"}]],
+            "A": [[{"day": 2, "time": "14-17"}, {"day": 0, "time": "14-16"}],
+                [{"day": 2, "time": "14-17"}, {"day": 1, "time": "12-14"}],
+                [{"day": 2, "time": "14-17"}, {"day": 3, "time": "10-12"}]],
         },
         feedback: [
     
@@ -470,10 +470,10 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "tuesday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}],
-                [{"day": "tuesday", "time": "8-10"}, {"day": "wednesday", "time": "18-20"}],
-                [{"day": "tuesday", "time": "8-10"}, {"day": "thursday", "time": "12-14"}],
-                [{"day": "tuesday", "time": "8-10"}, {"day": "tuesday", "time": "8-10"}]],
+            "A": [[{"day": 2, "time": "8-10"}, {"day": 3, "time": "12-14"}],
+                [{"day": 2, "time": "8-10"}, {"day": 3, "time": "18-20"}],
+                [{"day": 2, "time": "8-10"}, {"day": 4, "time": "12-14"}],
+                [{"day": 2, "time": "8-10"}, {"day": 2, "time": "8-10"}]],
         },
         feedback: [
     
@@ -504,12 +504,12 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "8-10"}, {"day": "sunday", "time": "16-18"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "8-10"}, {"day": "monday", "time": "10-12"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "wednesday", "time": "8-10"}, {"day": "tuesday", "time": "18-20"}]],
+            "A": [[{"day": 0, "time": "12-14"}, {"day": 3, "time": "8-10"}, {"day": 0, "time": "16-18"}],
+                [{"day": 0, "time": "12-14"}, {"day": 3, "time": "8-10"}, {"day": 1, "time": "10-12"}],
+                [{"day": 0, "time": "12-14"}, {"day": 3, "time": "8-10"}, {"day": 2, "time": "18-20"}]],
             
-            "B": [[{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}, {"day": "tuesday", "time": "8-10"}],
-                [{"day": "tuesday", "time": "10-12"}, {"day": "thursday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}]],
+            "B": [[{"day": 2, "time": "10-12"}, {"day": 4, "time": "14-16"}, {"day": 2, "time": "8-10"}],
+                [{"day": 2, "time": "10-12"}, {"day": 4, "time": "14-16"}, {"day": 4, "time": "12-14"}]],
         },
         feedback: [
     
@@ -536,10 +536,10 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "16-18"}],
-                [{"day": "tuesday", "time": "8-10"}],
-                [{"day": "thursday", "time": "18-20"}],
-                [{"day": "thursday", "time": "8-10"}]],
+            "A": [[{"day": 1, "time": "16-18"}],
+                [{"day": 2, "time": "8-10"}],
+                [{"day": 4, "time": "18-20"}],
+                [{"day": 4, "time": "8-10"}]],
         },
         feedback: [
     
@@ -570,9 +570,9 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "wednesday", "time": "8-12"}, {"day": "sunday", "time": "10-12"}],
-                [{"day": "tuesday", "time": "8-12"}, {"day": "wednesday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "8-12"}, {"day": "thursday", "time": "16-18"}]],
+            "B": [[{"day": 3, "time": "8-12"}, {"day": 0, "time": "10-12"}],
+                [{"day": 2, "time": "8-12"}, {"day": 3, "time": "14-16"}],
+                [{"day": 2, "time": "8-12"}, {"day": 4, "time": "16-18"}]],
         },
         feedback: [
     
@@ -599,12 +599,12 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "16-18"}, {"day": "tuesday", "time": "14-16"}, {"day": "sunday", "time": "12-14"}],
-                [{"day": "sunday", "time": "16-18"}, {"day": "tuesday", "time": "14-16"}, {"day": "monday", "time": "14-16"}],
-                [{"day": "sunday", "time": "16-18"}, {"day": "tuesday", "time": "14-16"}, {"day": "wednesday", "time": "8-10"}]],
+            "A": [[{"day": 0, "time": "16-18"}, {"day": 2, "time": "14-16"}, {"day": 0, "time": "12-14"}],
+                [{"day": 0, "time": "16-18"}, {"day": 2, "time": "14-16"}, {"day": 1, "time": "14-16"}],
+                [{"day": 0, "time": "16-18"}, {"day": 2, "time": "14-16"}, {"day": 3, "time": "8-10"}]],
     
-            "B": [[{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}, {"day": "sunday", "time": "12-14"}],
-                [{"day": "sunday", "time": "14-16"}, {"day": "thursday", "time": "12-14"}, {"day": "thursday", "time": "14-16"}]],
+            "B": [[{"day": 0, "time": "14-16"}, {"day": 4, "time": "12-14"}, {"day": 0, "time": "12-14"}],
+                [{"day": 0, "time": "14-16"}, {"day": 4, "time": "12-14"}, {"day": 4, "time": "14-16"}]],
         },
         feedback: [
     
@@ -631,9 +631,9 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "thursday", "time": "8-10"}, {"day": "sunday", "time": "8-10"}],
-                [{"day": "thursday", "time": "8-10"}, {"day": "monday", "time": "16-18"}]
-                [{"day": "thursday", "time": "8-10"}, {"day": "wednesday", "time": "12-14"}]],
+            "B": [[{"day": 4, "time": "8-10"}, {"day": 0, "time": "8-10"}],
+                [{"day": 4, "time": "8-10"}, {"day": 1, "time": "16-18"}]
+                [{"day": 4, "time": "8-10"}, {"day": 3, "time": "12-14"}]],
         },
         feedback: [
     
@@ -664,8 +664,8 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "tuesday", "time": "16-18"}, {"day": "wednesday", "time": "18-20"}]],
-            "B": [[{"day": "tuesday", "time": "16-18"}, {"day": "tuesday", "time": "14-16"}]]
+            "A": [[{"day": 2, "time": "16-18"}, {"day": 3, "time": "18-20"}]],
+            "B": [[{"day": 2, "time": "16-18"}, {"day": 2, "time": "14-16"}]]
         },
         feedback: [
     
@@ -693,7 +693,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "thursday", "time": "14-16"}, {"day": "monday", "time": "14-16"}]]
+            "B": [[{"day": 4, "time": "14-16"}, {"day": 1, "time": "14-16"}]]
         },
         feedback: [
         ]
@@ -719,7 +719,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "sunday", "time": "8-12"}]]
+            "B": [[{"day": 0, "time": "8-12"}]]
         },
         feedback: [
     
@@ -750,7 +750,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "18-20"}, {"day": "wednesday", "time": "10-12"}]]
+            "A": [[{"day": 1, "time": "18-20"}, {"day": 3, "time": "10-12"}]]
         },
         feedback: [
     
@@ -781,7 +781,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "8-11"}]]
+            "A": [[{"day": 1, "time": "8-11"}]]
         },
         feedback: [
     
@@ -808,11 +808,11 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "12-14"}, {"day": "thursday", "time": "12-14"}, {"day": "sunday", "time": "14-16"}],
-                [{"day": "sunday", "time": "12-14"}, {"day": "thursday", "time": "12-14"}, {"day": "monday", "time": "12-14"}]],
+            "A": [[{"day": 0, "time": "12-14"}, {"day": 4, "time": "12-14"}, {"day": 0, "time": "14-16"}],
+                [{"day": 0, "time": "12-14"}, {"day": 4, "time": "12-14"}, {"day": 1, "time": "12-14"}]],
     
-            "B": [[{"day": "tuesday", "time": "8-12"}, {"day": "monday", "time": "14-16"}],
-                [{"day": "tuesday", "time": "8-12"}, {"day": "thursday", "time": "18-20"}]],
+            "B": [[{"day": 2, "time": "8-12"}, {"day": 1, "time": "14-16"}],
+                [{"day": 2, "time": "8-12"}, {"day": 4, "time": "18-20"}]],
         },
         feedback: [
     
@@ -843,7 +843,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "wednesday", "time": "14-17"}]],
+            "A": [[{"day": 3, "time": "14-17"}]],
         },
         feedback: [
     
@@ -870,7 +870,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "sunday", "time": "12-14"}, {"day": "thursday", "time": "12-14"}]],
+            "B": [[{"day": 0, "time": "12-14"}, {"day": 4, "time": "12-14"}]],
         },
         feedback: [
     
@@ -897,7 +897,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "14-16"}, {"day": "wednesday", "time": "12-14"}]],
+            "A": [[{"day": 0, "time": "14-16"}, {"day": 3, "time": "12-14"}]],
         },
         feedback: [
     
@@ -928,7 +928,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "tuesday", "time": "8-12"}]],
+            "B": [[{"day": 2, "time": "8-12"}]],
         },
         feedback: [
     
@@ -959,7 +959,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "monday", "time": "14-17"}]],
+            "B": [[{"day": 1, "time": "14-17"}]],
         },
         feedback: [
     
@@ -990,7 +990,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "friday", "time": "10-14"}]],
+            "A": [[{"day": 5, "time": "10-14"}]],
         },
         feedback: [
     
@@ -1021,7 +1021,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "friday", "time": "10-14"}]],
+            "B": [[{"day": 5, "time": "10-14"}]],
         },
         feedback: [
     
@@ -1095,7 +1095,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "8-12"}, {"day": "monday", "time": "14-16"}]],
+            "A": [[{"day": 1, "time": "8-12"}, {"day": 1, "time": "14-16"}]],
         },
         feedback: [
     
@@ -1122,7 +1122,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "wednesday", "time": "12-16"}]],
+            "B": [[{"day": 3, "time": "12-16"}]],
         },
         feedback: [
     
@@ -1153,7 +1153,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "tuesday", "time": "8-12"}]],
+            "B": [[{"day": 2, "time": "8-12"}]],
         },
         feedback: [
     
@@ -1212,7 +1212,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "monday", "time": "8-11"}]],
+            "B": [[{"day": 1, "time": "8-11"}]],
         },
         feedback: [
     
@@ -1243,7 +1243,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "tuesday", "time": "12-14"}]],
+            "B": [[{"day": 2, "time": "12-14"}]],
         },
         feedback: [
     
@@ -1283,7 +1283,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "sunday", "time": "17-20"}, {"day": "monday", "time": "12-14"}]],
+            "B": [[{"day": 0, "time": "17-20"}, {"day": 1, "time": "12-14"}]],
         },
         feedback: [
     
@@ -1310,7 +1310,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "monday", "time": "14-17"}]],
+            "A": [[{"day": 1, "time": "14-17"}]],
         },
         feedback: [
     
@@ -1345,7 +1345,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "9-12"}, {"day": "thursday", "time": "14-16"}]],
+            "A": [[{"day": 0, "time": "9-12"}, {"day": 4, "time": "14-16"}]],
         },
         feedback: [
     
@@ -1376,7 +1376,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "sunday", "time": "9-12"}]],
+            "A": [[{"day": 0, "time": "9-12"}]],
         },
         feedback: [
     
@@ -1403,7 +1403,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "B": [[{"day": "monday", "time": "11-13"}]],
+            "B": [[{"day": 1, "time": "11-13"}]],
         },
         feedback: [
     
@@ -1446,7 +1446,7 @@ app.get('/createCourses11', async (req, res) => {
             
         ],
         lectures: {
-            "A": [[{"day": "thursday", "time": "16-19"}]],
+            "A": [[{"day": 4, "time": "16-19"}]],
         },
         feedback: [
     
