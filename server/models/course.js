@@ -10,9 +10,9 @@ const courseSchema = new mongoose.Schema({
     semesterA: Boolean,
     semesterB: Boolean,
     semesterC: Boolean,
-    semester: String,
     grades: Array,
     lectures: Object,
+    feedback: Array
 });    
 
 const Course = mongoose.model("course", courseSchema);

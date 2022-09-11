@@ -51,6 +51,31 @@ class Lectures extends Component {
     })
   };
 
+  coursesTaught(courses) {
+    if (courses.length > 0) {
+      return (
+        <div className="pre-requisites">
+          <ul>
+            {courses.map((course) => {
+              return (
+                <li>
+                  <a href={"/courses?courseName=" + course.courseName.replaceAll(' ', '-')}>{course.courseName}: {course.courseId}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="pre-requisites">
+          <p>None</p>
+        </div>
+      );
+    }
+  };
+
   lecturerInfo() {
     if (this.state.lecturer) {
       const lecturerName = this.state.lecturer.name;
@@ -65,8 +90,17 @@ class Lectures extends Component {
             <hr></hr>
             <h5>Room: {this.state.lecturer.room}</h5>
             <hr></hr>
-            {/* todo:*/}
-            <h5>Specialties: {this.state.lecturer.specialties}</h5>
+            <h5>Specialties: {
+              this.state.lecturer.specialties.map((specialty) => {
+                return (
+                  <span>{specialty}, </span>
+                )
+              })
+            }</h5>
+            <hr></hr>
+            <h5>Courses</h5>
+            {this.coursesTaught(this.state.lecturer.courses)}
+
           </div>
         );
       }
@@ -74,7 +108,14 @@ class Lectures extends Component {
   };
   
   saveFeedback() {
-    console.log(this.state.feedback);
+    fetch('/addLecturerFeedback/' + this.state.feedback + '/' +  this.state.lecturer.name)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        lecturer: data,
+        feedback: ''
+      })
+    })
   }
 
   handleFeedbackChange(event) {

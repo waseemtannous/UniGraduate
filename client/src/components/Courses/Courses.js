@@ -82,34 +82,86 @@ class Courses extends Component {
     }
   };
 
+  lecturesPerSemester(course, semester) {
+    const groups = course.lectures[semester];
+    if (!groups) {
+      return(
+        <p>No lectures in this semester</p>
+      );
+    }
+    return (
+      groups.map((group) => {
+        return (
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {group.map((lecture) => {
+                return (
+                      <tr>
+                        <td>{lecture.day}</td>
+                        <td>{lecture.time}</td>
+                      </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        );
+      })
+    );
+  }
+
   lecturesTimes(course){
     if (course.lectures) {
       return (
         <div className="lectures-times">
           <h3>Lectures Times</h3>
-          
-              {course.lectures.map((group) => {
-                return (
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Time</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                  {group.map((lecture) => {
-                    return (
-                          <tr>
-                            <td>{lecture.day}</td>
-                            <td>{lecture.time}</td>
-                          </tr>
-                    );
-                  })}
-                    </tbody>
-                  </table>
-                );
-              })}
+
+          <div className="semester-lectures">
+            <h4>Semester A</h4>
+            {this.lecturesPerSemester(course, 'A')}
+          </div>
+
+          <div className="semester-lectures">
+            <h4>Semester B</h4>
+            {this.lecturesPerSemester(course, 'B')}
+          </div>
+
+          <div className="semester-lectures">
+            <h4>Semester C</h4>
+            {this.lecturesPerSemester(course, 'C')}
+          </div>
+        </div>
+      );
+    }
+  };
+
+  preRequisites(preRequisites) {
+    if (preRequisites.length > 0) {
+      return (
+        <div className="pre-requisites">
+          <h5>Pre-Requisites</h5>
+          <ul>
+            {preRequisites.map((preRequisite) => {
+              return (
+                <li>
+                  <a href={"/courses?courseName=" + preRequisite.courseName.replaceAll(' ', '-')}>{preRequisite.courseName}: {preRequisite.courseId}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="pre-requisites">
+          <h5>Pre-Requisites</h5>
+          <p>None</p>
         </div>
       );
     }
@@ -123,11 +175,19 @@ class Courses extends Component {
           <div className="course-info">
             <h3>{this.state.course.name} - {this.state.course.id}</h3>
             <hr></hr>
-            {/* todo: add lecturer link*/}
-            <h5>lecturer: {this.state.course.lecturer}</h5>
-            {/* <p>{course.preRequisites}</p> */}
+            <h5>lecturer: 
+              <a href={"/lecturers?lecturerName=" + this.state.course.lecturer.replaceAll(' ', '-')}> {this.state.course.lecturer}</a>
+            </h5>
+            <hr></hr>
+            {this.preRequisites(this.state.course.preRequisites)}
+            <hr></hr>
             <h5>Points: {this.state.course.points}</h5>
-            <h5>Semester: {this.state.course.semester}</h5>
+            <hr></hr>
+            <h5>Semester: 
+              {this.state.course.semesterA ? ' A,' : ''}
+              {this.state.course.semesterB ? ' B,' : ''}
+              {this.state.course.semesterC ? ' C' : ''}
+            </h5>
             <hr></hr>
             {this.gradesTable(this.state.course)}
             <hr></hr>
@@ -139,7 +199,14 @@ class Courses extends Component {
   };
 
   saveFeedback() {
-    console.log(this.state.feedback);
+    fetch('/addCourseFeedback/' + this.state.feedback + '/' +  this.state.course.name)
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        course: data,
+        feedback: ''
+      })
+    })
   }
 
   handleFeedbackChange(event) {

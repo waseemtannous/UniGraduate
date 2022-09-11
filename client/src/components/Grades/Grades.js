@@ -7,38 +7,40 @@ class Grades extends Component {
   constructor(props) {
     super(props);
 
-    const user = {
-        name: "Waseem Tannous",
-        email: "waseemt99@gmail.com",
-        password: "12345",
-        id: 207866328,
-        courses: [
-            "CSCI-5100",
-            "CSCI-5200",
-            "CSCI-5300"
-        ],
-        grades: [
-            {
-            courseName: "CSCI-5100",
-            courseId: "5100",
-            points: 5,
-            grade: 90
-            },
-            {
-            courseName: "CSCI-5200",
-            courseId: "5200",
-            points: 5,
-            grade: 80
-            },
-            {
-            courseName: "CSCI-5300",
-            courseId: "5300",
-            points: 5,
-            grade: 70
-            }
-        ],
-        gpa: 80,
-    };
+    // const user = {
+    //     name: "Waseem Tannous",
+    //     email: "waseemt99@gmail.com",
+    //     password: "12345",
+    //     id: 207866328,
+    //     courses: [
+    //         "CSCI-5100",
+    //         "CSCI-5200",
+    //         "CSCI-5300"
+    //     ],
+    //     grades: [
+    //         {
+    //         courseName: "CSCI-5100",
+    //         courseId: "5100",
+    //         points: 5,
+    //         grade: 90
+    //         },
+    //         {
+    //         courseName: "CSCI-5200",
+    //         courseId: "5200",
+    //         points: 5,
+    //         grade: 80
+    //         },
+    //         {
+    //         courseName: "CSCI-5300",
+    //         courseId: "5300",
+    //         points: 5,
+    //         grade: 70
+    //         }
+    //     ],
+    //     gpa: 80,
+    // };
+
+    const user  = sessionStorage.getItem('user');
 
     this.state = {
         user: user,
@@ -88,6 +90,7 @@ class Grades extends Component {
         });
     } else {
         const grades = this.state.user.grades;
+        console.log(grades);
         gradesList = grades.map((grade) => {
             return (
                 <tr>
@@ -176,12 +179,12 @@ class Grades extends Component {
                     <h2>Courses</h2>
                 </div>
                 <div className="col-md-6">
-                    <button className="btn btn-primary" onClick={this.editBtn}>
+                    <button className="btn btn-primary" onClick={this.editBtn} disabled={!this.state.user.grades}>
                         {this.state.edit ? "Done" : "Edit"}
                     </button>
                 </div>
             </div>
-            {this.showGrades()}
+            {this.state.user.grades ? this.showGrades() : <h2>No Grades</h2>}
           </div>
           <div className="col-sm-3 border-start ">
             {this.getGpa()}

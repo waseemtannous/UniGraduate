@@ -8,6 +8,7 @@ const teacherSchema = new mongoose.Schema({
     phone: String,
     specialties: Array,
     courses: Array,
+    feedback: Array
 });    
 
 const Teacher = mongoose.model("teacher", teacherSchema);
