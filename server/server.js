@@ -7,8 +7,6 @@ const Teacher = require("./models/teacher");
 const PrivateTeacher = require("./models/privateTeacher");
 const Course = require("./models/course");
 
-// import { createCourses, createTeachers, createPrivateTeachers, createUsers} from './data.js';
-
 const Data = require("./data");
 
 const port = process.env.PORT;
@@ -21,6 +19,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
+
+app.get('/ping', (req, res) => {
+    res.send('pong');
+});
 
 app.get('/Login/:userEmail/:userPassword', async (req, res) => {
     const user = await User.find({
