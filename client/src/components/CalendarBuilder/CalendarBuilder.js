@@ -44,7 +44,8 @@ class CalendarBuilder extends Component {
         calendar: calendar,
         workingHours: workingHours,
         allCaleldars: [],
-        calendarIndex: 0
+        calendarIndex: 0,
+        specificCourses: [],
     };
   }
 
@@ -107,11 +108,18 @@ class CalendarBuilder extends Component {
 
     addBtn(type1) {
         if (type1) {
+            let newmaxPoints = this.state.maxPoints;
+            let newminPoints = this.state.minPoints;
             if (this.state.minPoints < 30) {
-                this.setState({
-                    minPoints: this.state.minPoints + 1,
-                });
+                newminPoints = this.state.minPoints + 1;
             }
+            if (this.state.maxPoints <= this.state.minPoints) {
+                newmaxPoints = newminPoints;
+            }
+            this.setState({
+                maxPoints: newmaxPoints,
+                minPoints: newminPoints,
+            });
         } else{
             if (this.state.maxPoints < 30) {
                 this.setState({
@@ -134,6 +142,19 @@ class CalendarBuilder extends Component {
                     maxPoints: this.state.maxPoints - 1,
                 });
             }
+
+            let newmaxPoints = this.state.maxPoints;
+            let newminPoints = this.state.minPoints;
+            if (this.state.maxPoints > 0) {
+                newmaxPoints = this.state.maxPoints - 1;
+            }
+            if (this.state.maxPoints <= this.state.minPoints) {
+                newminPoints = newmaxPoints;
+            }
+            this.setState({
+                maxPoints: newmaxPoints,
+                minPoints: newminPoints,
+            });
         }
     }
 
@@ -160,6 +181,24 @@ class CalendarBuilder extends Component {
 
 
 
+    handleMultiChange(option, availableCourses) {
+        let specificCoursesName = [];
+        for (let i = 0; i < option.length; i++) {
+            specificCoursesName.push(option[i].value);
+        }
+
+        let specificCourses = [];
+        for (let i = 0; i < availableCourses.length; i++) {
+            if (specificCoursesName.includes(availableCourses[i].name)) {
+                specificCourses.push(availableCourses[i]);
+            }
+        }
+
+        this.setState({
+            specificCourses: specificCourses,
+        });
+      }
+    
     coursesFilter() {
         // select courses from available courses and add them to the selected courses
         return (
@@ -171,7 +210,7 @@ class CalendarBuilder extends Component {
                     options={this.state.availableCoursesSelect}
                     className="basic-multi-select"
                     classNamePrefix="select"
-
+                    onChange={(option) => this.handleMultiChange(option, this.state.availableCourses)}
                 />
             </div>
         );
@@ -211,13 +250,13 @@ class CalendarBuilder extends Component {
         const maxPoints = this.state.maxPoints;
         const workingHours = this.state.workingHours;
         let calendar = [];
-    for (let i = 0; i < 12; i++) {
-        let row = [];
-        for (let j = 0; j < 6; j++) {
-            row.push("");
+        for (let i = 0; i < 12; i++) {
+            let row = [];
+            for (let j = 0; j < 6; j++) {
+                row.push("");
+            }
+            calendar.push(row);
         }
-        calendar.push(row);
-    }
 
         // loop over working hours
         for (let i = 0; i < 12; i++) {
@@ -230,12 +269,22 @@ class CalendarBuilder extends Component {
             }
         }
 
-        const allCaleldars = fillCalendar(user, courses, minPoints, maxPoints, semester, false, this.transpose(calendar));
+        const allCaleldars = fillCalendar(user, courses, minPoints, maxPoints, semester, false, this.transpose(calendar), this.state.specificCourses);
 
-        this.setState({
-            allCaleldars: allCaleldars,
-            calendar: this.transposeT(allCaleldars[this.state.calendarIndex]),
-        });
+        alert(allCaleldars.length + " calendars found.");
+        if (allCaleldars.length > 0) {
+            this.setState({
+                allCaleldars: allCaleldars,
+                calendar: this.transposeT(allCaleldars[this.state.calendarIndex]),
+            });
+        } else {
+            this.setState({
+                allCaleldars: [],
+                calendar: calendar,
+            });
+        }
+
+        
     }
 
     clearCalendar() {
@@ -349,6 +398,11 @@ class CalendarBuilder extends Component {
     }
 
     displayAllCalendars() {
+
+        if (this.state.allCaleldars.length == 0) {
+            return "";
+        }
+
         return(
             <div>
                 {this.state.allCaleldars.map((calendar, index) => {
@@ -362,7 +416,7 @@ class CalendarBuilder extends Component {
                         }
                     }
                     return(
-                        <button onClick={() => this.setState({calendarIndex: index, calendar: this.state.allCaleldars[index]})}>
+                        <button onClick={() => this.setState({calendarIndex: index, calendar: this.state.allCaleldars.length > 0 ? this.transposeT(this.state.allCaleldars[index]) : this.state.calendar})}>
                             <div>
                             <h3>Calendar {index}</h3>
                             {
