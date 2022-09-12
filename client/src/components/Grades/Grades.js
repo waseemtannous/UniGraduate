@@ -9,7 +9,7 @@ class Grades extends Component {
   constructor(props) {
     super(props);
 
-    const user  = sessionStorage.getItem('user');
+    const user  = JSON.parse(sessionStorage.getItem('user'));
 
     this.state = {
         user: user,
@@ -59,7 +59,6 @@ class Grades extends Component {
         });
     } else {
         const grades = this.state.user.grades;
-        console.log(grades);
         gradesList = grades.map((grade) => {
             return (
                 <tr>
