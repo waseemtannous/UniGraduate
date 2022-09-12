@@ -8,6 +8,7 @@ import Grades from './components/Grades/Grades';
 import Courses from './components/Courses/Courses';
 import Lecturers from './components/Lecturers/Lecturers';
 import Teachers from './components/Teachers/Teachers';
+import Bucket from './components/bucket/bucket';
 
 const Routes = () => {
   return (
@@ -21,6 +22,7 @@ const Routes = () => {
       <Route exact path='/Lecturers' component={Lecturers}></Route>
       <Route exact path='/Lecturers/:lecturerName' component={Lecturers}></Route>
       <Route exact path='/Teachers' component={Teachers}></Route>
+      <Route exact path='/Bucket' component={Bucket}></Route>
     </Switch>
   );
 }

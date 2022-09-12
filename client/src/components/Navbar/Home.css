@@ -1,0 +1,18 @@
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: auto;
+  margin: 50px;
+}
+
+
+.centered2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+  }
+  

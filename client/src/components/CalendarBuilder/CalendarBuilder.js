@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from "../Navbar/Navbar";
 
 import {Helmet} from 'react-helmet';
 
@@ -439,14 +440,7 @@ class CalendarBuilder extends Component {
     render() { 
         return (
             <div>
-                  <Helmet>
-                      <style>{'body { background-image: url("");  background-color: #d2d2d2; }'}</style>
-                  </Helmet>
-              <nav class="navbar fixed-top navbar-dark bg-dark justify-content-center">
-                <a class="navbar-brand" href="\">
-                    UniGraduate
-                </a>
-              </nav>
+                <Navbar></Navbar>
               <div className="container-fluid h-100">
         
                 <h1 class="text-center pt-5 mt-3">Calendar Builder</h1>
