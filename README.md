@@ -1,16 +1,25 @@
 # UniGraduate
 
-to run server: npm run server
-to run client: npm start
+## Run Locally
 
-npm i --save react-select
+client:
 
----
+```bash
+cd client
+npm install
+npm start
+```
 
-client package.json:
-scripts:
-windows:
-"start": "set PORT=80 && react-scripts start",
+server:
 
-linux:
-"start": "PORT=80 react-scripts start",
+```bash
+cd server
+npm install
+npm sun server
+```
+
+## Run Using Docker
+
+```bash
+docker-compose up -d --build
+```
