@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import Navbar from "../Navbar/Navbar";
+import { checkLogin } from '../../checkLogin';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -157,6 +159,9 @@ class Lectures extends Component {
 
   render() { 
     return (
+      <div>
+        <Navbar></Navbar>
+        {checkLogin()}
       <div className="container-fluid h-100">
         <h1>lecturers</h1>
         <hr></hr>
@@ -173,6 +178,7 @@ class Lectures extends Component {
             {this.feedback()}
           </div>
         </div>
+      </div>
       </div>
       );
     }

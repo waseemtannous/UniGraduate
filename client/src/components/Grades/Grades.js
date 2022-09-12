@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Navbar from "../Navbar/Navbar";
+import { checkLogin } from '../../checkLogin';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -6,39 +8,6 @@ class Grades extends Component {
 
   constructor(props) {
     super(props);
-
-    // const user = {
-    //     name: "Waseem Tannous",
-    //     email: "waseemt99@gmail.com",
-    //     password: "12345",
-    //     id: 207866328,
-    //     courses: [
-    //         "CSCI-5100",
-    //         "CSCI-5200",
-    //         "CSCI-5300"
-    //     ],
-    //     grades: [
-    //         {
-    //         courseName: "CSCI-5100",
-    //         courseId: "5100",
-    //         points: 5,
-    //         grade: 90
-    //         },
-    //         {
-    //         courseName: "CSCI-5200",
-    //         courseId: "5200",
-    //         points: 5,
-    //         grade: 80
-    //         },
-    //         {
-    //         courseName: "CSCI-5300",
-    //         courseId: "5300",
-    //         points: 5,
-    //         grade: 70
-    //         }
-    //     ],
-    //     gpa: 80,
-    // };
 
     const user  = sessionStorage.getItem('user');
 
@@ -169,6 +138,9 @@ class Grades extends Component {
   
     render() { 
     return (
+    <div>
+        <Navbar></Navbar>
+        {checkLogin()}
       <div className="container-fluid h-100">
         <h1>Grades</h1>
         <hr></hr>
@@ -190,6 +162,7 @@ class Grades extends Component {
             {this.getGpa()}
           </div>
         </div>
+      </div>
       </div>
       );
     }

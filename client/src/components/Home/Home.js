@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "./Home.css"
 import Navbar from "../Navbar/Navbar";
 
-function checkLogin() {
-  console.log(sessionStorage.getItem("user"));
-  if (sessionStorage.getItem("user") === null) window.location.href = "/Login";
-}
 
 class Home extends Component {
   state = {};
@@ -15,7 +11,6 @@ class Home extends Component {
       <div className="Home">
         <Navbar></Navbar>
         <div className="centered">
-          {checkLogin()}
           <button
             onClick={() => {
               window.location.href = "/CalendarBuilder";

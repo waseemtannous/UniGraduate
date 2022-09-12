@@ -78,8 +78,8 @@ export function addLesturesToAssignment(lectures, assignment, course) {
         end = end - 8;
 
         for (let j = start; j < end; j++) {
-            if (newAssignment[day][j] == "") {
-                newAssignment[day][j] = course;
+            if (typeof(newAssignment[day][j]) == "object" && newAssignment[day][j].length == 0) {
+                newAssignment[day][j].push(course);
             } else {
                 return null;
             }
@@ -94,6 +94,10 @@ export function csp(courses, points, assignment, assignmentCourses, assignmentPo
 
     if (assignmentPoints === points) {
         return assignment;
+    }
+
+    if (assignmentPoints > points) {
+        return null;
     }
 
     for (let i = 0; i < courses.length; i++) {
@@ -129,11 +133,44 @@ export function csp(courses, points, assignment, assignmentCourses, assignmentPo
 // 3. semester
 // 4. working hours
 
-export function fillCalendar(user, courses, minPoints, maxPoints, semester, mandatory, workingHours) {
+export function fillCalendar(user, courses, minPoints, maxPoints, semester, mandatory, calendar, selectedCourses) {
     // get available courses and filter by semester
     // let availableCourses = getAvailableCourses(user, courses, semester);
     let availableCourses = courses;
 
+    let calendarPoints = 0;
+
+    if (selectedCourses.length > 0) {
+        for (let i = 0; i < selectedCourses.length; i++) {
+            calendarPoints += selectedCourses[i].points;
+        }
+    }
+
+    let coursesIds = [];
+    for (let i = 0; i < selectedCourses.length; i++) {
+        coursesIds.push(selectedCourses[i].id);
+    }
+
+    for (let i = 0; i < selectedCourses.length; i++) {
+        const course = selectedCourses[i];
+        const lectures = course.lectures[semester][0];
+        for (let j = 0; j < lectures.length; j++) {
+            const lecture = lectures[j];
+            const day = lecture.day;
+            const time = lecture.time;
+            let start = parseInt(time.split("-")[0]);
+            let end = parseInt(time.split("-")[1]);
+
+            start = start - 8;
+            end = end - 8;
+
+            for (let k = start; k < end; k++) {
+                if (typeof(calendar[day][k]) == "object") {
+                    calendar[day][k].push(course);
+                }
+            }
+        }
+    }
 
     // shuffle
     // availableCourses.sort(() => Math.random() - 0.5);
@@ -147,7 +184,7 @@ export function fillCalendar(user, courses, minPoints, maxPoints, semester, mand
     let assignments = [];
 
     for (let i = minPoints; i <= maxPoints; i++) {
-        let assignment = csp(availableCourses, i, workingHours, [], 0, semester);
+        let assignment = csp(availableCourses, i, calendar, coursesIds, calendarPoints, semester);
         if (assignment) {
             assignments.push(assignment);
         }
@@ -155,17 +192,4 @@ export function fillCalendar(user, courses, minPoints, maxPoints, semester, mand
 
     return assignments;
 }
-
-
-// let workingHours = [];
-// for (let i = 0; i <= 5; i++) {
-//     let row = [];
-//     for (let j = 0; j < 12; j++) {
-//         row.push("");
-//     }
-//     workingHours.push(row);
-// }
-
-// let calendar = fillCalendar(user1, allCourses, 15, 20, "A", true, workingHours)
-// console.log(calendar);
 

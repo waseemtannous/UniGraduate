@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Navbar from "../Navbar/Navbar";
 
-import {Helmet} from 'react-helmet';
-
 import Select from 'react-select'
+import { checkLogin } from '../../checkLogin';
 
-import { getAvailableCourses, addLesturesToAssignment, csp, fillCalendar } from './utils.js';
+import { getAvailableCourses, fillCalendar } from './utils.js';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,7 +20,7 @@ class CalendarBuilder extends Component {
     for (let i = 0; i < 12; i++) {
         let row = [];
         for (let j = 0; j < 6; j++) {
-            row.push("");
+            row.push([]);
         }
         calendar.push(row);
     }
@@ -256,7 +255,7 @@ class CalendarBuilder extends Component {
         for (let i = 0; i < 12; i++) {
             let row = [];
             for (let j = 0; j < 6; j++) {
-                row.push("");
+                row.push([]);
             }
             calendar.push(row);
         }
@@ -265,8 +264,6 @@ class CalendarBuilder extends Component {
         for (let i = 0; i < 12; i++) {
             for (let j = 0; j < 6; j++) {
                 if (workingHours[i][j]) {
-                    calendar[i][j] = "working";
-                } else {
                     calendar[i][j] = "";
                 }
             }
@@ -295,7 +292,7 @@ class CalendarBuilder extends Component {
         for (let i = 0; i < 12; i++) {
             let row = [];
             for (let j = 0; j < 6; j++) {
-                row.push("");
+                row.push([]);
             }
             calendar.push(row);
         }
@@ -312,6 +309,7 @@ class CalendarBuilder extends Component {
         this.setState({
             calendar: calendar,
             workingHours: workingHours,
+            allCaleldars: [],
         });
     }
 
@@ -344,17 +342,23 @@ class CalendarBuilder extends Component {
     }
 
     getCourseByHourAndDay(hour, day) {
-        const course = this.state.calendar[hour][day];
+        const courses = this.state.calendar[hour][day];
 
-        if (course != "" && course != "working") {
+        if (courses != "" && courses.length > 0) {
             return(
-                <div className="card">
-                    <div className="card-body">
-                        <p className="card-title">Name: {course.name}</p>
-                        <p className="card-text">Points: {course.points}</p>
-                    </div>
-                </div>
-            )
+                
+                    courses.map((course) => {
+                        return(
+                            <div className={courses.length > 1 ? "card bg-warning" : "card"}>
+                                <div className="card-body">
+                                    <h5 className="card-title">Name: {course.name}</h5>
+                                    <p className="card-text">Points: {course.points}</p>
+                                </div>
+                            </div>
+                        );
+                    }
+                    )
+            );
         }
         return "";
     }
@@ -412,16 +416,20 @@ class CalendarBuilder extends Component {
                     let courses = [];
                     for(let i = 0; i < calendar.length; i++) {
                         for(let j = 0; j < calendar[0].length; j++) {
-                            const course = calendar[i][j];
-                            if (typeof(course) == "object" && !courses.includes(course.name)) {
-                                courses.push(course.name);
+                            const coursesCal = calendar[i][j];
+                            if (coursesCal != "" && coursesCal.length > 0) {
+                                for (let k = 0; k < coursesCal.length; k++) {
+                                    if (!courses.includes(coursesCal[k].name)) {
+                                        courses.push(coursesCal[k].name);
+                                    }
+                                }
                             }
                         }
                     }
                     return(
                         <button onClick={() => this.setState({calendarIndex: index, calendar: this.state.allCaleldars.length > 0 ? this.transposeT(this.state.allCaleldars[index]) : this.state.calendar})}>
                             <div>
-                            <h3>Calendar {index}</h3>
+                            <h3>Calendar {index + 1}</h3>
                             {
                                 courses.map(course => {
                                   return(
@@ -441,13 +449,10 @@ class CalendarBuilder extends Component {
         return (
             <div>
                 <Navbar></Navbar>
+                {checkLogin()}
               <div className="container-fluid h-100">
-        
                 <h1 class="text-center pt-5 mt-3">Calendar Builder</h1>
-        
-        
                 <hr></hr>
-        
                 {this.filters()}
                 <hr></hr>
                 {this.displayAllCalendars()}

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import Navbar from "../Navbar/Navbar";
+import { checkLogin } from '../../checkLogin';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,6 +13,8 @@ class Courses extends Component {
     this.state = {
       searchOptions: [],
       feedback: "",
+      drive: "https://drive.google.com/drive/folders/0ByGd_S4x6vqNMU5ZaUVEZzZObHc",
+      daysMap: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday"],
     };
 
     let { courseName } = this.props.match.params;
@@ -103,7 +108,7 @@ class Courses extends Component {
               {group.map((lecture) => {
                 return (
                       <tr>
-                        <td>{lecture.day}</td>
+                        <td>{this.state.daysMap[lecture.day]}</td>
                         <td>{lecture.time}</td>
                       </tr>
                 );
@@ -174,6 +179,8 @@ class Courses extends Component {
         return (
           <div className="course-info">
             <h3>{this.state.course.name} - {this.state.course.id}</h3>
+            <hr></hr>
+            <button className="btn btn-primary" onClick={() => window.open(this.state.drive, "_blank")}>Drive</button>
             <hr></hr>
             <h5>lecturer: 
               <a href={"/lecturers?lecturerName=" + this.state.course.lecturer.replaceAll(' ', '-')}> {this.state.course.lecturer}</a>
@@ -247,7 +254,10 @@ class Courses extends Component {
 
   render() { 
     return (
-      <div className="container-fluid h-100">
+      <div>
+        <Navbar />
+        {checkLogin()}
+        <div className="container-fluid h-100">
         <h1>Courses</h1>
         <hr></hr>
         <div className="row">
@@ -264,6 +274,8 @@ class Courses extends Component {
           </div>
         </div>
       </div>
+      </div>
+
       );
     }
   }
