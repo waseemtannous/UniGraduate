@@ -150,12 +150,12 @@ class Grades extends Component {
                     <h2>Courses</h2>
                 </div>
                 <div className="col-md-6">
-                    <button className="btn btn-primary" onClick={this.editBtn} disabled={!this.state.user.grades}>
+                    <button className="btn btn-primary" onClick={this.editBtn} disabled={this.state.user.grades.length == 0}>
                         {this.state.edit ? "Done" : "Edit"}
                     </button>
                 </div>
             </div>
-            {this.state.user.grades ? this.showGrades() : <h2>No Grades</h2>}
+            {this.state.user.grades.length > 0 ? this.showGrades() : <h2>No Grades</h2>}
           </div>
           <div className="col-sm-3 border-start ">
             {this.getGpa()}
