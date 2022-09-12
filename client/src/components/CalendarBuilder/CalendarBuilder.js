@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from 'react-helmet';
+
 import Select from 'react-select'
 
 import { getAvailableCourses, addLesturesToAssignment, csp, fillCalendar } from './utils.js';
@@ -435,21 +437,33 @@ class CalendarBuilder extends Component {
     }
 
     render() { 
-    return (
-      <div className="container-fluid h-100">
-        <h1>
-            Calendar Builder         
-        </h1>
+        return (
+            <div>
+                  <Helmet>
+                      <style>{'body { background-image: url("");  background-color: #d2d2d2; }'}</style>
+                  </Helmet>
+              <nav class="navbar fixed-top navbar-dark bg-dark justify-content-center">
+                <a class="navbar-brand" href="\">
+                    UniGraduate
+                </a>
+              </nav>
+              <div className="container-fluid h-100">
         
-        <hr></hr>
-
-        {this.filters()}
-        <hr></hr>
-        {this.displayAllCalendars()}
-        {this.displayCalendar()}
-      </div>
-      );
+                <h1 class="text-center pt-5 mt-3">Calendar Builder</h1>
+        
+        
+                <hr></hr>
+        
+                {this.filters()}
+                <hr></hr>
+                {this.displayAllCalendars()}
+                {this.displayCalendar()}
+              </div>
+            </div>
+          );
     }
   }
+
+  
 
 export default CalendarBuilder;
