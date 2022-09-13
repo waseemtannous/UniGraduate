@@ -257,7 +257,7 @@ class Courses extends Component {
       <div>
         <Navbar />
         {checkLogin()}
-        <div className="container-fluid h-100">
+        <div className="container-fluid h-100 pt-5 mt-3">
         <h1>Courses</h1>
         <hr></hr>
         <div className="row">

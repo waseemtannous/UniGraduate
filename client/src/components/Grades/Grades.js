@@ -140,13 +140,13 @@ class Grades extends Component {
     <div>
         <Navbar></Navbar>
         {checkLogin()}
-      <div className="container-fluid h-100">
+      <div className="container-fluid h-100 pt-5 mt-3">
         <h1>Grades</h1>
         <hr></hr>
         <div className="row">
           <div className="col-sm-6 border-right">
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 ">
                     <h2>Courses</h2>
                 </div>
                 <div className="col-md-6">
