@@ -26,6 +26,9 @@ export default function Login() {
           sessionStorage.setItem('user', JSON.stringify(data));
           window.location.href = '/';
         }
+        else {
+          alert('Wrong email or password')
+        }
         });
 
 
