@@ -134,7 +134,7 @@ class Signup extends Component {
           </Form.Group>
 
           <Form.Group size="lg" controlId="email">
-            <Form.Label className = "">Email</Form.Label>
+            <Form.Label className = "mt-4">Email</Form.Label>
             <Form.Control
               autoFocus
               type="email"
