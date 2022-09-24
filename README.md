@@ -17,7 +17,7 @@ server:
 ```bash
 cd server
 npm install
-npm sun server
+npm run server
 ```
 
 ## Run Using Docker
