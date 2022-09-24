@@ -30,20 +30,20 @@ class Navbar extends Component {
             id="navbarNavAltMarkup"
           >
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="/Grades">
+              <a class="nav-item nav-link mx-4" href="/Grades">
                 Grades
               </a>
-              <a class="nav-item nav-link" href="/Courses">
+              <a class="nav-item nav-link mx-4" href="/Courses">
                 Courses
               </a>
-              <a class="nav-item nav-link" href="/Lecturers">
+              <a class="nav-item nav-link mx-4" href="/Lecturers">
                 Lecturers
               </a>
-              <a class="nav-item nav-link" href="/Teachers">
+              <a class="nav-item nav-link mx-4" href="/Teachers">
                 Teachers
               </a>
               <button
-                className="btn btn-danger btn-sm"
+                className="btn btn-danger btn-sm mx-4"
                 onClick={() => sessionStorage.removeItem("user")}
               >
                 <a class="nav-item nav-link" href="/Login">

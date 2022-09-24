@@ -167,15 +167,15 @@ class CalendarBuilder extends Component {
                 <h3>Choose points</h3>
                 <div className="col-sm-4">
                     <h4 >Min points</h4>
-                    <button className="btn btn-primary btn-sm" onClick={() => this.minusBtn(true)}>-</button>
+                    <button className="btn btn-dark btn-sm mx-2" onClick={() => this.minusBtn(true)}>-</button>
                         {this.state.minPoints}
-                    <button className="btn btn-primary btn-sm" onClick={() => this.addBtn(true)}>+</button>
+                    <button className="btn btn-dark btn-sm mx-2" onClick={() => this.addBtn(true)}>+</button>
                 </div>
                 <div className="col-sm-4">
                     <h4 >Max points</h4>
-                    <button className="btn btn-primary btn-sm" onClick={() => this.minusBtn(false)}>-</button>
+                    <button className="btn btn-dark btn-sm mx-2" onClick={() => this.minusBtn(false)}>-</button>
                         {this.state.maxPoints}
-                    <button className="btn btn-primary btn-sm" onClick={() => this.addBtn(false)}>+</button>
+                    <button className="btn btn-dark btn-sm mx-2" onClick={() => this.addBtn(false)}>+</button>
                 </div>
             </div>
         );
@@ -326,8 +326,8 @@ class CalendarBuilder extends Component {
         <div className="col-6">
           {this.coursesFilter()}
           <hr />
-          <button onClick={() => this.generateCalendar()} className="btn btn-primary btn-lg btn-block">Generate</button>
-          <button onClick={() => this.clearCalendar()} className="btn btn-primary btn-lg btn-block">Clear</button>
+          <button onClick={() => this.generateCalendar()} className="btn btn-dark btn-lg btn-block">Generate</button>
+          <button onClick={() => this.clearCalendar()} className="btn btn-dark btn-lg btn-block mx-2">Clear</button>
         </div>
       </div>
     );
