@@ -24,6 +24,53 @@ app.get('/ping', (req, res) => {
     res.send('pong');
 });
 
+app.post('/signup', async (req, res) => {
+    // get user info from request body
+    const user = req.body.user;
+    const courses = await Course.find({});
+    const userCourses = user.courses;
+    let usernewcourses = [];
+    let usergrades = [];
+
+    for(let i = 0; i < userCourses.length; i++){
+        for(let j = 0; j < courses.length; j++){
+            if(userCourses[i].courseName === courses[j].name){
+                let course = {
+                    courseName: courses[j].name,
+                    courseId: courses[j].id,
+                }
+                usernewcourses.push(course);
+                course = {
+                    courseName: courses[j].name,
+                    courseId: courses[j].id,
+                    points: courses[j].points,
+                    grade: userCourses[i].courseGrade
+                }
+                usergrades.push(course);
+            }
+        }
+    }
+
+    user.courses = usernewcourses;
+    user.grades = usergrades;
+
+    let gpa = 0;
+    let totalPoints = 0;
+
+    for(let i = 0; i < user.grades.length; i++){
+        gpa += user.grades[i].points * user.grades[i].grade;
+        totalPoints += user.grades[i].points;
+    }
+
+    gpa = gpa / totalPoints;
+
+    user.gpa = gpa;
+
+
+    User.create(user);
+    res.send(true);
+});
+
 app.get('/Login/:userEmail/:userPassword', async (req, res) => {
     const user = await User.find({
         email: req.params.userEmail.toLowerCase(),

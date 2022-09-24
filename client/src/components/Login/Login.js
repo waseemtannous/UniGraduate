@@ -81,6 +81,14 @@ export default function Login() {
         </Button>
 
         </div>
+
+        <div className="text-center">
+          {/* redirect to /signup */}
+        <Button className="px-5 my-5" block size="lg" onClick={() => window.location.href = "/Signup"}>
+          SignUp
+        </Button>
+
+        </div>
       </Form>
     </div>
   );
