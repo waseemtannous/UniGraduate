@@ -76,7 +76,7 @@ export default function Login() {
           />
         </Form.Group>
         <div className="text-center">
-        <Button className="px-5 mt-5 mb-3" block size="lg" type="submit" disabled={!validateForm()}>
+        <Button variant="outline-dark" className="px-5 mt-5 mb-3" block size="lg" type="submit" disabled={!validateForm()}>
           Log in
         </Button>
 
@@ -87,7 +87,7 @@ export default function Login() {
           {/* redirect to /signup */}
         <p classname="font-monospace">If you don't have an account, Sign up to countinue</p>
 
-        <Button className="px-5 my-1" block size="lg" onClick={() => window.location.href = "/Signup"}>
+        <Button variant="outline-dark" className="px-5 my-1" block size="lg" onClick={() => window.location.href = "/Signup"}>
           Sign up
         </Button>
 

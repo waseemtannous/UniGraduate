@@ -177,7 +177,7 @@ class Signup extends Component {
           {this.displayCourses()}
 
           <div className="text-center">
-          <Button className="px-5 my-5" block size="lg" type="submit" disabled={!(this.validateForm())}>
+          <Button variant="outline-dark" className="px-5 my-1" block size="lg" type="submit" disabled={!(this.validateForm())}>
             Signup
           </Button>
   
