@@ -27,6 +27,9 @@ app.get('/ping', (req, res) => {
 app.post('/signup', async (req, res) => {
     // get user info from request body
     const user = req.body.user;
+    if (!user) {
+        return;
+    }
     const courses = await Course.find({});
     const userCourses = user.courses;
     let usernewcourses = [];
@@ -61,6 +64,8 @@ app.post('/signup', async (req, res) => {
         gpa += user.grades[i].points * user.grades[i].grade;
         totalPoints += user.grades[i].points;
     }
+
+    totalPoints = totalPoints === 0 ? 1 : totalPoints;
 
     gpa = gpa / totalPoints;
 
