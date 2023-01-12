@@ -1,0 +1,21 @@
+# ingress for the service
+#
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: unigraduate
+  name: unigraduate
+  labels:
+    app: unigraduate
+spec:
+  rules:
+    - host: unigraduate.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: unigraduate
+                port:
+                  number: 8080
