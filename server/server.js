@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require("mongoose");
+const path = require('path');
 require('dotenv').config();
 
 const User = require("./models/user");
@@ -18,6 +19,7 @@ const app = express();
 // Body Parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 app.get('/ping', (req, res) => {
@@ -90,7 +92,7 @@ app.get('/Login/:userEmail/:userPassword', async (req, res) => {
 });
 
 app.get('/getCourse/:courseName', async (req, res) => {
-    const courseName = req.params.courseName.replaceAll('-', ' ');
+    const courseName = req.params.courseName.replace(/-/g, ' ');
     const course = await Course.findOne({name: courseName});
 
 
@@ -113,7 +115,7 @@ app.get('/getCoursesNames', async (req, res) => {
 });
 
 app.get('/getLecturer/:lecturerName', async (req, res) => {
-    const lecturerName = req.params.lecturerName.replaceAll('-', ' ');
+    const lecturerName = req.params.lecturerName.replace(/-/g, ' ');
     const lecturer = await Teacher.findOne({name: lecturerName});
 
     res.json(lecturer);
@@ -134,7 +136,7 @@ app.get('/getlecturersNames', async (req, res) => {
 });
 
 app.get('/addCourseFeedback/:feedback/:courseName', async (req, res) => {
-    const courseName = req.params.courseName.replaceAll('-', ' ');
+    const courseName = req.params.courseName.replace(/-/g, ' ');
     const feedback = req.params.feedback;
     const course = await Course.findOne({name: courseName});
     course.feedback.push(feedback);
@@ -143,7 +145,7 @@ app.get('/addCourseFeedback/:feedback/:courseName', async (req, res) => {
 });
 
 app.get('/addLecturerFeedback/:feedback/:lecturerName', async (req, res) => {
-    const lecturerName = req.params.lecturerName.replaceAll('-', ' ');
+    const lecturerName = req.params.lecturerName.replace(/-/g, ' ');
     const feedback = req.params.feedback;
     const lecturer = await Teacher.findOne({name: lecturerName});
     lecturer.feedback.push(feedback);
@@ -157,7 +159,7 @@ app.get('/getCourses', async (req, res) => {
 });
 
 app.get('/getTeachers/:courseName', async (req, res) => {
-    const courseName = req.params.courseName.replaceAll('-', ' ');
+    const courseName = req.params.courseName.replace(/-/g, ' ');
     const privateTeachers = await PrivateTeacher.find();
     let response = [];
     for (let i = 0; i < privateTeachers.length; i++) {
@@ -171,31 +173,20 @@ app.get('/getTeachers/:courseName', async (req, res) => {
     res.json(response);
 });
 
-app.get('/createUsers', async (req, res) => {
+// init data in mongoDB
+app.get('/initData', async (req, res) => {
     const allUsers = Data.createUsers();
     for (let i = 0; i < allUsers.length; i++) {
         User.create(allUsers[i]);
     }
-    res.json("done");
-});
-
-app.get('/createPrivTeachers', async (req, res) => {
     const allTeachers = Data.createPrivateTeachers();
     for (let i = 0; i < allTeachers.length; i++) {
         PrivateTeacher.create(allTeachers[i]);
     }
-    res.json("done");
-});
-
-app.get('/createCourses', async (req, res) => {
     const allCourses = Data.createCourses();
     for (let i = 0; i < allCourses.length; i++) {
         Course.create(allCourses[i]);
     }
-    res.json("done");
-});
-
-app.get('/createTeachers', async (req, res) => {
     const allLecturers = Data.createTeachers();
     for (let i = 0; i < allLecturers.length; i++) {
         Teacher.create(allLecturers[i]);
@@ -203,6 +194,8 @@ app.get('/createTeachers', async (req, res) => {
     res.json("done");
 });
 
+app.get('/*', (req, res) => {
+   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
-
