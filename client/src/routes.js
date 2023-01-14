@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
@@ -9,20 +9,27 @@ import Courses from './components/Courses/Courses';
 import Lecturers from './components/Lecturers/Lecturers';
 import Teachers from './components/Teachers/Teachers';
 
-const Routes = () => {
+const RoutesApp = () => {
   return (
-    <Switch>
-      <Route exact path='/' component={CalendarBuilder}></Route>
-      <Route exact path='/Login' component={Login}></Route>
-      <Route exact path='/Signup' component={Signup}></Route>
-      <Route exact path='/Grades' component={Grades}></Route>
-      <Route exact path='/Courses' component={Courses}></Route>
-      <Route exact path='/Courses/:courseName' component={Courses}></Route>
-      <Route exact path='/Lecturers' component={Lecturers}></Route>
-      <Route exact path='/Lecturers/:lecturerName' component={Lecturers}></Route>
-      <Route exact path='/Teachers' component={Teachers}></Route>
-    </Switch>
+    <Routes>
+      {/* <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/calendar" element={<CalendarBuilder />} />
+      <Route path="/grades" element={<Grades />} />
+      <Route path="/courses" element={<Courses />} />
+      <Route path="/lecturers" element={<Lecturers />} />
+      <Route path="/teachers" element={<Teachers />} /> */}
+
+      <Route path='/Login' element={<Login />} />
+      <Route path='/Signup' element={<Signup />} />
+      <Route path='/Grades' element={<Grades />} />
+      <Route path='/Courses' element={<Courses />} />
+      <Route path='/Courses/:courseName' element={<Courses />} />
+      <Route path='/Lecturers' element={<Lecturers />} />
+      <Route path='/Lecturers/:lecturerName' element={<Lecturers />} />
+      <Route path='/Teachers' element={<Teachers />} />
+    </Routes>
   );
 }
 
-export default Routes;
+export default RoutesApp;
