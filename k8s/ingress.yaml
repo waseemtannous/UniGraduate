@@ -9,7 +9,7 @@ metadata:
     app: unigraduate
 spec:
   rules:
-    - host: unigraduate.com
+    - host:
       http:
         paths:
           - path: /
