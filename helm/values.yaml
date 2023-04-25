@@ -1,0 +1,5 @@
+name: unigraduate
+namespace: unigraduate
+replicas: 1
+image: waseemtannous/unigraduate
+port: 8080
