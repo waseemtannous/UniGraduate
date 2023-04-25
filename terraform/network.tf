@@ -1,116 +1,232 @@
-resource "aws_vpc" "vpc" {
-  cidr_block = var.vpcCidr
+# VPC
 
-  tags = tomap(
-    {
-      Name                                   = var.vpcName
-      "kubernetes.io/cluster/${var.eksName}" = "shared"
-    }
-  )
+resource "aws_vpc" "main" {
+  cidr_block = "192.168.0.0/16"
 
-}
+  instance_tenancy = "default"
 
-# create a gateway
-resource "aws_internet_gateway" "gateway" {
-  vpc_id = aws_vpc.vpc.id
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+
+  enable_classiclink               = false
+  enable_classiclink_dns_support   = false
+  assign_generated_ipv6_cidr_block = false
+
   tags = {
-    Name = "unigraduate-gateway"
+    Name = "main"
   }
 }
 
+output "vpc_id" {
+  value     = aws_vpc.main.id
+  sensitive = false
 
-# get 2 availability zones
-data "aws_availability_zones" "available" {
-  state = "available"
 }
 
-# create 2 private and 2 public subnets
-resource "aws_subnet" "private" {
-  count             = 2
-  vpc_id            = aws_vpc.vpc.id
-  cidr_block        = var.privateCidr[count.index]
-  availability_zone = data.aws_availability_zones.available.names[count.index]
-  tags = tomap(
-    {
-      Name                                   = "unigraduate-private-${count.index}-${data.aws_availability_zones.available.names[count.index]}}"
-      "kubernetes.io/cluster/${var.eksName}" = "shared"
-      "kubernetes.io/role/internal-elb"      = "1"
-    }
-  )
+# Internet Gateway
+
+resource "aws_internet_gateway" "main" {
+  vpc_id = aws_vpc.main.id
+
+  tags = {
+    Name = "main"
+  }
 }
 
-resource "aws_subnet" "public" {
-  count                   = 2
-  vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = var.publicCidr[count.index]
-  availability_zone       = data.aws_availability_zones.available.names[count.index]
+output "internet_gateway_id" {
+  value     = aws_internet_gateway.main.id
+  sensitive = false
+}
+
+# Subnets
+
+resource "aws_subnet" "public_1" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "192.168.0.0/18"
+  availability_zone       = "eu-central-1a"
   map_public_ip_on_launch = true
-  tags = tomap(
-    {
-      Name                                   = "unigraduate-public-${count.index}-${data.aws_availability_zones.available.names[count.index]}"
-      "kubernetes.io/cluster/${var.eksName}" = "shared"
-      "kubernetes.io/role/elb"               = "1"
-    }
-  )
-}
-
-# create ip allocation for nat gateway
-resource "aws_eip" "natIp" {
-  vpc = true
 
   tags = {
-    Name = "unigraduate-nat-ip"
+    Name                        = "public-1-eu-central-1a"
+    "kubernetes.io/cluster/eks" = "shared"
+    "kubernetes.io/role/elb"    = "1"
   }
 }
 
-# create a nat gateway
-resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.natIp.id
-  subnet_id     = aws_subnet.public[0].id
+resource "aws_subnet" "public_2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "192.168.64.0/18"
+  availability_zone       = "eu-central-1b"
+  map_public_ip_on_launch = true
 
+  tags = {
+    Name                        = "public-2-eu-central-1b"
+    "kubernetes.io/cluster/eks" = "shared"
+    "kubernetes.io/role/elb"    = "1"
+  }
+}
+
+resource "aws_subnet" "private_1" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "192.168.128.0/18"
+  availability_zone = "eu-central-1a"
+
+  tags = {
+    Name                        = "private-1-eu-central-1a"
+    "kubernetes.io/cluster/eks" = "shared"
+    "kubernetes.io/role/elb"    = "1"
+  }
+}
+
+resource "aws_subnet" "private_2" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "192.168.192.0/18"
+  availability_zone = "eu-central-1b"
+
+  tags = {
+    Name                        = "private-2-eu-central-1b"
+    "kubernetes.io/cluster/eks" = "shared"
+    "kubernetes.io/role/elb"    = "1"
+  }
+}
+
+output "public_subnet_ids" {
+  value     = [aws_subnet.public_1.id, aws_subnet.public_2.id]
+  sensitive = false
+}
+
+output "private_subnet_ids" {
+  value     = [aws_subnet.private_1.id, aws_subnet.private_2.id]
+  sensitive = false
+}
+
+# eip
+
+resource "aws_eip" "nat1" {
   depends_on = [
-    aws_internet_gateway.gateway
+    aws_internet_gateway.main
+  ]
+}
+
+resource "aws_eip" "nat2" {
+  depends_on = [
+    aws_internet_gateway.main
+  ]
+}
+
+# nat gateways
+
+resource "aws_nat_gateway" "nat1" {
+  allocation_id = aws_eip.nat1.id
+  subnet_id     = aws_subnet.public_1.id
+  depends_on = [
+    aws_internet_gateway.main
   ]
 
   tags = {
-    Name = "unigraduate-nat"
+    Name = "nat1"
   }
 }
 
-# create a route tables for public and private subnets
-resource "aws_route_table" "privateRouteTable" {
-  vpc_id = aws_vpc.vpc.id
-  route {
-    cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat.id
-  }
+resource "aws_nat_gateway" "nat2" {
+  allocation_id = aws_eip.nat2.id
+  subnet_id     = aws_subnet.public_2.id
+  depends_on = [
+    aws_internet_gateway.main
+  ]
+
   tags = {
-    Name = "unigraduate-private-route-table"
+    Name = "nat2"
   }
 }
 
-resource "aws_route_table" "publicRouteTable" {
-  vpc_id = aws_vpc.vpc.id
+output "nat1_id" {
+  value     = aws_nat_gateway.nat1.id
+  sensitive = false
+}
+
+output "nat2_id" {
+  value     = aws_nat_gateway.nat2.id
+  sensitive = false
+}
+
+# Route Tables
+
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.main.id
+
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.gateway.id
+    gateway_id = aws_internet_gateway.main.id
   }
 
   tags = {
-    Name = "unigraduate-public-route-table"
+    Name = "public"
+  }
+
+}
+
+resource "aws_route_table" "private1" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat1.id
+  }
+
+  tags = {
+    Name = "private1"
   }
 }
 
-# associate subnets with route tables
-resource "aws_route_table_association" "privateRouteTableAssociation" {
-  count          = 2
-  subnet_id      = aws_subnet.private[count.index].id
-  route_table_id = aws_route_table.privateRouteTable.id
+resource "aws_route_table" "private2" {
+  vpc_id = aws_vpc.main.id
+
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat2.id
+  }
+
+  tags = {
+    Name = "private2"
+  }
 }
 
-resource "aws_route_table_association" "publicRouteTableAssociation" {
-  count          = 2
-  subnet_id      = aws_subnet.public[count.index].id
-  route_table_id = aws_route_table.publicRouteTable.id
+output "public_route_table_id" {
+  value     = aws_route_table.public.id
+  sensitive = false
 }
+
+output "private1_route_table_id" {
+  value     = aws_route_table.private1.id
+  sensitive = false
+}
+
+output "private2_route_table_id" {
+  value     = aws_route_table.private2.id
+  sensitive = false
+}
+
+# Route Table Association
+
+resource "aws_route_table_association" "public_1" {
+  subnet_id      = aws_subnet.public_1.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "public_2" {
+  subnet_id      = aws_subnet.public_2.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "private_1" {
+  subnet_id      = aws_subnet.private_1.id
+  route_table_id = aws_route_table.private1.id
+}
+
+resource "aws_route_table_association" "private_2" {
+  subnet_id      = aws_subnet.private_2.id
+  route_table_id = aws_route_table.private2.id
+}
+
 
