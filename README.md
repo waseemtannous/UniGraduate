@@ -76,5 +76,5 @@ kubectl apply -f app.yaml
 8. Get the address of the ingress controller
 
 ```bash
-kubectl get ing
+kubectl get ingress
 ```
