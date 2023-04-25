@@ -4,10 +4,13 @@ import Button from "react-bootstrap/Button";
 import { Helmet } from "react-helmet";
 import logo from "./t.png";
 import "./Login.css";
+import {useNavigate} from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -24,17 +27,13 @@ export default function Login() {
       .then(data => {
         if (data._id) {
           sessionStorage.setItem('user', JSON.stringify(data));
-          window.location.href = '/';
+          navigate('/');
         }
         else {
           alert('Wrong email or password')
         }
         });
 
-
-    console.log(userInfo);
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
     event.preventDefault();
   }
 

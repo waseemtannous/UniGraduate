@@ -17,7 +17,8 @@ class Courses extends Component {
       daysMap: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday"],
     };
 
-    let { courseName } = this.props.match.params;
+    // let { courseName } = this.props.match.params;
+    let { courseName } = "";
 
     const url = new URL(window.location);
     courseName = url.searchParams.get('courseName');

@@ -12,14 +12,7 @@ import Teachers from './components/Teachers/Teachers';
 const RoutesApp = () => {
   return (
     <Routes>
-      {/* <Route path="/" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/calendar" element={<CalendarBuilder />} />
-      <Route path="/grades" element={<Grades />} />
-      <Route path="/courses" element={<Courses />} />
-      <Route path="/lecturers" element={<Lecturers />} />
-      <Route path="/teachers" element={<Teachers />} /> */}
-
+      <Route path='/' element={<CalendarBuilder />} />
       <Route path='/Login' element={<Login />} />
       <Route path='/Signup' element={<Signup />} />
       <Route path='/Grades' element={<Grades />} />

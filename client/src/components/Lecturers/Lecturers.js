@@ -14,7 +14,8 @@ class Lectures extends Component {
       feedback: "",
     };
 
-    let { lecturerName } = this.props.match.params;
+    // let { lecturerName } = this.props.match.params;
+    let { lecturerName } = "";
 
     const url = new URL(window.location);
     lecturerName = url.searchParams.get('lecturerName');
